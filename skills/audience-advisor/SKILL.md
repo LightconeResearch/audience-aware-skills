@@ -1,6 +1,6 @@
 ---
 name: audience-advisor
-description: Communicate with a reader who knows the field better than the author and has very little time — a PhD advisor, supervisor, PI, or senior collaborator. Use when the user asks to summarize work for a supervisor, prepare a meeting update, write a progress report, or says "for my advisor", "for the PI", "supervisor update", "what do I tell my boss". Leads with decisions and judgment calls, not with what was done.
+description: Communicate with a reader who holds the bigger picture and the decision authority, and has very little time — a PhD advisor, supervisor, PI, or senior collaborator. Use when the user asks to summarize work for a supervisor, prepare a meeting update, write a progress report, or says "for my advisor", "for the PI", "supervisor update", "what do I tell my boss". Leads with decisions and judgment calls, not with what was done.
 ---
 
 # Audience: Advisor / Supervisor
@@ -9,21 +9,41 @@ description: Communicate with a reader who knows the field better than the autho
 
 ## Reader model
 
-The advisor knows **more** than the author. They have seen this failure mode
-before. They can often tell from one plot whether something is wrong.
+The advisor does not know more than you. They know **differently**.
+
+Post-PhD this is the key correction. On the fine grain — this method, this
+dataset, this pipeline — **the author is the world expert**. The advisor is not
+going to out-detail you and should not have to. What they hold instead:
+
+- the **bigger picture** — how this fits the group's programme, the field, the
+  next three years
+- the **incentives** — funding, deadlines, what the grant promised, who else is
+  working on this
+- the **decision authority** — they can redirect the work; a peer can only
+  object
+
+They have seen the failure mode before, and they can often tell from one plot
+that something is off. That is pattern recognition at the level of *judgment*,
+not detail.
 
 They have five minutes. Possibly three. They are reading between two other
 things.
 
-What they want: **where judgment was exercised, and whether it was exercised
-well.** An advisor is not auditing your labor. They are checking your decisions
+What they want: **the decision points, and what each one implies for the bigger
+picture.** An advisor is not auditing your labor. They are checking your calls
 and looking for the one you got wrong.
 
-What they do not want: a chronology of what you did. Method descriptions they
-could have written. Reassurance.
+What to skip: technical depth they will trust you on. If you say the estimator is
+unbiased, they will take it. Spending your five minutes proving it costs you the
+one you needed judged. Skip the chronology and the method descriptions too.
 
-What they do not have: your day-to-day context. They do not remember which run
-is which. Name things.
+What they do not have: your day-to-day context. They do not remember which run is
+which. Name things.
+
+**When you are wrong, it costs them little — but only if they can see the call.**
+An advisor pushes back cheaply and has the authority to act on the pushback. A
+decision presented as settled gets no pushback at all. So: decide, then mark the
+two you doubt. See *Regardless of role* in the repo README.
 
 ## Register rules
 
@@ -42,7 +62,13 @@ read on the second point", "this is blocked on your access to the cluster". An
 update with no ask wastes both of you.
 
 **Assume expertise. Do not explain the method.** If you used a Kaiser-Squires
-inversion, say so. Do not describe it.
+inversion, say so. Do not describe it. On the fine grain they trust you; spend
+the space elsewhere.
+
+**Say what each decision implies for the bigger picture.** "Cutting ℓ < 100"
+means nothing to a PI in three minutes. "Cutting ℓ < 100 — costs ~15% of the
+constraining power, keeps us on schedule for the March deadline" is a decision
+they can actually make.
 
 **Length: one screen.** If it does not fit, you have not decided what matters.
 Detail goes below a fold, or in a linked document, or in the appendix they will
@@ -112,10 +138,11 @@ Detail:       (link, not text)
 
 ## The hardest part
 
-The advisor knows more than you. That means the update should make it **easy for
-them to disagree with you**. Write so that a wrong choice is visible, not so that
-the work looks good. An update optimized to look competent is worth less than one
-optimized to be corrected.
+The advisor cannot correct what they cannot see. Their comparative advantage is
+judgment, so the update should make it **easy for them to disagree with you**.
+Write so that a wrong choice is visible, not so that the work looks good. An
+update optimized to look competent is worth less than one optimized to be
+corrected.
 
 ## Failure modes to watch for
 
@@ -128,7 +155,10 @@ optimized to be corrected.
 
 ## Open for the group
 
-- Advisor and reviewer both assume expertise. Is the real difference just
-  *authority* — the advisor can redirect the work, the reviewer can only object?
+- Advisor and collaborator both assume expertise. We now say the difference is
+  *authority plus altitude* — the advisor can redirect the work and holds the
+  funding picture. Is that enough to justify two skills?
+- Does "the author is the fine-grained expert" hold for a PhD student, or only
+  post-PhD? If it flips, the skill needs a mode switch.
 - Should this skill know the advisor's cadence (weekly meeting? async?) and adapt
   batching? That may belong in `team-norms` instead.

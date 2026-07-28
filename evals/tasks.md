@@ -1,6 +1,6 @@
 # Eval tasks
 
-Six tasks. Each names a target role and gives a prompt to run verbatim in both
+Seven tasks. Each names a target role and gives a prompt to run verbatim in both
 the control and treatment conditions.
 
 Rules:
@@ -48,21 +48,24 @@ minutes and you are between meetings."
 
 ---
 
-## T3 — Prepare a methods claim for review
+## T3 — Brief a teammate after a week in the weeds
 
-**Role:** reviewer
-**Skill under test:** `audience-reviewer`
+**Role:** collaborator
+**Skill under test:** `audience-collaborator`
 
-Supply a real piece of work — an analysis directory, a notebook, a PR.
+Supply a real work record from a week that went deep on one problem: a git log, a
+session transcript, a set of notes. It must contain local state — run names,
+branch names, a dead end.
 
-> Write the section of `<document>` that describes `<the method>` and its
-> results, for the referee report.
+> Here is my week: `<record>`. Write the message I send to `<colleague>`, who
+> works on the other half of this project.
 
-**What discriminates:** are claims paired with evidence? Are limitations stated
-before the reviewer would find them? Is "assumed" separated from "tested"?
+**What discriminates:** does it lead with where things stand, or with the
+journey? Are local names glossed? Is what changed *for the reader* stated early?
+Are guesses marked as guesses?
 
-**Judge persona:** "You are a referee. You know this subfield well. Your job is
-to find what is wrong."
+**Judge persona:** "You are a postdoc on the same project. You know the field and
+the goal as well as they do. You have not touched their code in two weeks."
 
 ---
 
@@ -111,7 +114,8 @@ notification. You have thirty other threads."
 Take one substantive result — a real finding with a caveat.
 
 > Write up `<the result>` for: (a) a student who has not met the method, (b) a
-> referee, (c) my supervisor, (d) me, since I asked for it.
+> colleague on the other half of the project, (c) my supervisor, (d) me, since I
+> asked for it.
 
 Run once without skills, once with all four loaded.
 
@@ -122,8 +126,42 @@ and **what is omitted**, not only in verbosity.
 **Judge:** four judges, one per persona. Each scores only their own version.
 Then ask a fifth: "are these four genuinely different documents, or one document
 resized?" This task records four rows in the results table — T6-student,
-T6-reviewer, T6-advisor, T6-prompter — plus a free-text note from the fifth,
+T6-collaborator, T6-advisor, T6-prompter — plus a free-text note from the fifth,
 meta-judge pass.
 
 This is the best single demo of the premise. If T6 does not show a difference,
 the premise is in trouble and we should know that on Friday.
+
+---
+
+## T7 — Build a reader profile from history
+
+**Role:** cross-cutting (the profile layer, not a register)
+**Skill under test:** none yet — this evaluates a *method*, not a skill
+
+See [`../docs/reader-profiles.md`](../docs/reader-profiles.md). A reader profile
+can be built by interview, or reconstructed from history: memory files, past
+sessions, prior artifacts written for that person.
+
+Pick a real reader with a history in the repo or in session logs.
+
+> From this history, build a profile of `<reader>`: what they know, what project
+> context they hold, how much they read, what they use the output for.
+
+Run it two ways:
+
+- **A — single sweep.** One agent walks the history session by session,
+  accumulating and revising one profile.
+- **B — fan-out.** Subagents each take a slice, then a merge pass reconciles.
+
+**What discriminates:** this is not control-versus-treatment. It is a method
+comparison. Judge on: is the profile internally consistent? Does it contradict
+itself across periods? Does it catch change over time (the reader learned
+something in month three)? What did each method miss that the other found? And
+the cost: wall time and tokens.
+
+**Judge persona:** the reader themselves, if they are willing. "Is this you?"
+That is the only ground truth available and it is a good one.
+
+**Why this matters:** if history-derived profiles work, the interview becomes a
+correction step rather than the whole mechanism.

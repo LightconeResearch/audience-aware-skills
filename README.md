@@ -3,9 +3,10 @@
 Agent communication about research should adapt to **who reads it**.
 
 A status update for the person who asked for the work is not the same document as
-an explanation for a student. A note to a supervisor is not a note to a peer
-reviewer. Today most agents write one register for everyone: complete, eager,
-long. That register is wrong for almost every reader.
+an explanation for a student. A note to a supervisor is not a note to the
+colleague on the other half of the project. Today most agents write one register
+for everyone: complete, eager, long. That register is wrong for almost every
+reader.
 
 This repo holds v0 skills that make an agent pick a register on purpose, plus a
 way to check whether the skills actually help.
@@ -19,15 +20,27 @@ Everything here is a draft. Tear it apart.
 
 **Axis 1 — reader role.** Who is reading, and what do they already know?
 
-| Role | Assumed knowledge | Wants |
+| Role | Relative to the author | Wants |
 |---|---|---|
-| **Student** | Less than the author | To understand. Not to be handed the answer. |
-| **Reviewer** | As much as the author | To find what is wrong. Claims, evidence, gaps. |
-| **Advisor / Supervisor** | More than the author | The decision points. Where judgment was exercised. |
+| **Student** | Knows less | To understand. Not to be handed the answer. |
+| **Collaborator** | Knows as much; holds none of your day-to-day state | The high-level picture, with local detail on demand. |
+| **Advisor / Supervisor** | Knows *differently* — bigger picture, funding, authority | The decision points and what they imply. |
 | **Prompter** | Asked for the work | The outcome and the decisions. Minimal ceremony. |
 
-In practice the reviewer is often an AI. The advisor is often a human with five
-minutes. The prompter is the person in the terminal right now.
+The collaborator is a peer on your team with the same scientific goal — a
+postdoc, a PhD student, faculty who is not your advisor. The delta is not
+knowledge, it is **trench time**: they have not fought your bug for a week.
+
+The advisor is often a human with five minutes. The prompter is the person in
+the terminal right now.
+
+Roles are **priors, not boxes**. No real reader sits exactly on one. The layer
+above them is a reader profile built by a short interview — see
+[`docs/reader-profiles.md`](docs/reader-profiles.md).
+
+Formal peer review — adversarial claims-and-evidence, a referee trying to break
+the work — is a distinct mode and is *not* the collaborator skill. It may get its
+own skill later.
 
 **Axis 2 — team norms.** How does this group want to be communicated with?
 
@@ -40,21 +53,76 @@ Some norms are close to universal (concision is respect). Some are local (this
 lab wants a daily digest; that one wants nothing until it is done). So
 `skills/team-norms/` is a template plus an intake you fill in for your team.
 
+## Regardless of role
+
+Four things hold across every register. Each role skill states its own version in
+one line; the general form lives here.
+
+**Uncertainty tolerance scales with the reader's ability to push back.** An
+expert can challenge a wrong claim cheaply — it costs them a sentence. A student
+cannot; they absorb the error and build on it. So the rule is asymmetric. For a
+high-pushback reader you may think out loud freely. For a low-pushback reader,
+either be very sure, or say out loud that you are not. Every role skill's reader
+model carries a line on what it costs *that* reader when the author is wrong.
+
+**Declared beats sniffed.** Never infer the reader's expertise from cues in their
+message and then quietly steer. Reading someone as a novice because they used a
+plain word is a guess acted on invisibly, and it is condescending when wrong. The
+reader model comes from the **declared** role or profile. The register rule that
+follows: present options and your reasoning. Go first with your own view — "you
+go first" is the agent's job — but the reader decides. Do not foreclose.
+
+**Critical thinking is universal, not role-gated.** A student has as much
+critical-thinking potential as an advisor. Only the knowledge differs. So every
+register invites pushback, and every register welcomes the reframing question —
+"why are we asking it this way at all?" Naive questions are generative. Anyone
+who has done outreach knows this: the question from outside the lock-in is the
+one that opens a new area. The student skill in particular must not treat
+scaffolding toward the known answer as its only job.
+
+**Agents ask first.** "Better to ask forgiveness than permission" is advice for
+humans, who bear the consequences of their own actions. Agents invert it. An
+agent acting on someone's behalf asks before the irreversible or the
+consequential — posting, sending, publishing, deleting. This one also lives in
+`skills/team-norms/`.
+
+## Where this plugs in
+
+Not only chat. The larger target is **agent-generated science communication
+artifacts** — text about research that a model writes and a human reads.
+
+The concrete case that prompted this: Lightcone's ASTRA → MyST report generation.
+The `lc` report flow turns an analysis spec and its results into a narrative
+write-up. Today that narrative is written for an unnamed audience, which in
+practice means a generic one. These skills make **"who is this report for?"** a
+parameter of the generation.
+
+Generalize from there. Anything that communicates science with generated text —
+reports, summaries, docs, figure captions, release notes, meeting briefs — has a
+reader, and today most of them do not name one.
+
 ## Repo layout
 
 ```
-README.md                      you are here
-CONTRIBUTING.md                how to add a role, tune a skill, run an eval
+README.md                        you are here
+CONTRIBUTING.md                  how to add a role, tune a skill, run an eval
+docs/
+  reader-profiles.md             roles as priors; the interview that builds a profile
 skills/
-  audience-student/SKILL.md    teach; check comprehension before revealing
-  audience-reviewer/SKILL.md   claims and evidence; invite attack
-  audience-advisor/SKILL.md    decisions and judgment calls; assume expertise
-  audience-prompter/SKILL.md   outcome first; no ceremony
-  team-norms/SKILL.md          collaboration etiquette + team profile intake
+  audience-student/SKILL.md      teach; check comprehension before revealing
+  audience-collaborator/SKILL.md peer with no trench time; summary first, detail on demand
+  audience-advisor/SKILL.md      decision points and big-picture implications
+  audience-prompter/SKILL.md     outcome first; no ceremony
+  team-norms/SKILL.md            collaboration etiquette + team profile intake
 evals/
-  README.md                    with/without protocol and judging rubric
-  tasks.md                     concrete eval tasks
+  README.md                      with/without protocol and judging rubric
+  tasks.md                       concrete eval tasks
 ```
+
+The architecture, in one sentence:
+
+> **The LLM's job is to model the reader; the skill's job is to supply the best
+> practices that merge with that model.**
 
 Skills use the Claude Code format: a directory under `skills/`, containing
 `SKILL.md` with YAML frontmatter (`name`, `description`) and a markdown body. The
@@ -105,11 +173,13 @@ useful.
 1. A set of skills. (`skills/`)
 2. An evaluation of them. (`evals/`)
 3. Documentation and a template for adjusting them. (`CONTRIBUTING.md`,
-   the team profile intake.)
+   `docs/reader-profiles.md`, the team profile intake.)
 
 ## Open questions
 
 - Do roles compose? "Explain to a student, but my advisor is also reading."
 - Is `prompter` a role or a default? Most agent output is already aimed there.
-- Does the reviewer skill differ when the reviewer is an AI rather than a human?
+- Does formal peer review deserve its own skill, and is the AI referee a third
+  mode again?
 - How much of team-norms is really universal? We assert some. We may be wrong.
+- How far does the profile layer go before roles stop earning their keep?

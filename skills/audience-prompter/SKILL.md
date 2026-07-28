@@ -25,6 +25,12 @@ a list of files you read, or congratulations on the question.
 What they do not have: patience for ceremony. They are the reader most likely to
 skim, because they can always ask.
 
+**When you are wrong, the cost depends on whether they can see the call.** They
+know the goal, so they can catch a wrong intent cheaply. They do not know the
+work, so they cannot catch a wrong detail at all. Hence the rule below about
+surfacing silent decisions: it is what converts an invisible error into a
+challengeable one. See *Regardless of role* in the repo README.
+
 ## Register rules
 
 **First sentence is the outcome.** Worked, failed, or partly. No preamble.
@@ -50,8 +56,10 @@ about the problem. Then it is a finding, not a story.
 
 **Paths absolute, commands copy-pasteable.** The prompter will act on these.
 
-**Ask only when genuinely blocked.** Not for permission on a small reversible
-step. Do it, then flag it. A needless "shall I proceed?" is friction.
+**Ask on the irreversible; proceed on the reversible.** Do not ask permission for
+a small reversible step — do it, then flag it. A needless "shall I proceed?" is
+friction. But agents ask first on anything consequential or hard to undo. The
+line is who pays if it is wrong.
 
 ## Do / don't
 

@@ -22,6 +22,19 @@ that made the current approach obvious.
 What they can absorb: roughly one new concept at a time, anchored to something
 they already hold.
 
+**When you are wrong, it costs them the most.** This reader cannot push back
+cheaply. They lack the knowledge to detect the error, and they will build on it.
+So the uncertainty rule is strictest here: either be very sure, or say plainly
+that you are not. "I think this is right but I'd check it" is a complete
+sentence. See *Regardless of role* in the repo README.
+
+**They know less. They do not think less.** Critical-thinking potential is not
+role-gated — a first-year has as much of it as a PI, and only the knowledge
+differs. Their naive question is not a gap to be closed. It is a question from
+outside the lock-in, and those open new areas. Anyone who has done outreach has
+been handed one. Welcome the reframing question — "why do we even do it this
+way?" — instead of steering back to the answer you had planned.
+
 ## Register rules
 
 **Lead with a question, not a conclusion.** Before explaining a mechanism, ask
@@ -118,6 +131,61 @@ room).
 If a check reveals a gap, do not repeat the same explanation louder. Find a
 different anchor.
 
+## The comprehension ledger
+
+On anything longer than a few exchanges, keep a running document of **what the
+reader now understands**. Maintain it as you go and check against it before each
+new piece.
+
+Keep it short and keep it visible. Three lists:
+
+```
+Holds:      (confirmed by a check, not by silence)
+Shaky:      (they got it partly, or you have not checked)
+Deferred:   (named, deliberately skipped, will come back)
+```
+
+Rules for the ledger:
+
+- **Only a passed check moves something into Holds.** Not "I explained it".
+  Explaining is not evidence.
+- **Check the ledger before introducing a concept.** If it rests on something in
+  Shaky, fix that first or say you are building on sand.
+- **Show it to the reader.** It doubles as the "name where they are" map. A
+  student who can see what they hold learns faster than one who cannot.
+- **It is a working document, not a transcript.** Rewrite it; do not append.
+
+This is the mechanism behind the map rule above. Without a ledger, "name where
+they are" degrades into a sentence the agent writes once and then contradicts.
+
+## Time budget: two modes
+
+Ask first: **how much time do you have?** The answer changes the form, not just
+the length. See [`docs/reader-profiles.md`](../../docs/reader-profiles.md) — the
+time question is the first one in the profile interview, and a whole good
+learning prompt has already been killed on time alone.
+
+**Full walk** (twenty minutes or more). Everything above applies. Predict first,
+scaffold in three levels, check between them, maintain the ledger, follow the
+reframing question where it goes.
+
+**Five-minute version.** Not a compressed tutorial. A different artifact:
+
+1. One sentence on what kind of thing this is.
+2. The one mechanism that carries the rest.
+3. The single thing people get wrong.
+4. One line: "the part we skipped is X — that is where to go next."
+
+No prediction prompts. No scaffolding ladder. No ledger. There is not time to
+build understanding, so aim for a correct working picture plus an honest map of
+its edges. Say which mode you are in, so the reader knows what they are getting.
+
+<!-- TODO: the group intends to import an external learning prompt that handles
+     the scaffolded walk better than what is written here. It exists as a
+     screenshot that is not yet in this repo. Add it, credit its author, and
+     reconcile it with the ledger and the two-mode split above. -->
+
+
 ## Failure modes to watch for
 
 - **Socratic overload.** Endless questions with no payoff is not pedagogy, it is
@@ -128,11 +196,15 @@ different anchor.
   have. Build from there.
 - **Refusing to just answer.** Sometimes the person needs the fact and will learn
   it later. Read the room.
+- **Steering past the reframe.** Treating "why do we do it this way at all?" as a
+  detour back to the lesson plan. It is often the better question.
+- **Ledger by assertion.** Marking something Holds because you explained it.
 
 ## Open for the group
 
-- How does this interact with time pressure? A student with a deadline may need
-  the answer, not the journey.
-- Should the skill try to detect the student's level, or ask outright?
+- Two modes or three? "Five minutes" and "full walk" may not cover the reader
+  who has an hour but wants to skim.
+- Ask the student's level outright, or infer it? We say ask — *declared beats
+  sniffed* — but asking costs an exchange the five-minute mode does not have.
 - Prediction-first works well in conversation. Does it work in a written report,
   where nobody is there to answer?

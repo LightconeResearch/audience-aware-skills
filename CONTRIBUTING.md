@@ -19,15 +19,20 @@ Open a PR. If you are not sure it is right, open it as a draft and say so.
 
 ## Adding a new role
 
-1. **Justify the role by its knowledge state.** A new role needs a distinct
-   answer to: what does this reader know relative to the author, and what are
-   they reading *for*? "Collaborator" is probably not a role — it is a reviewer
-   or an advisor depending on the situation. "Funder" might be: knows less about
-   the method, reads for whether to keep paying.
+1. **Justify the role on two axes, not one.** Knowledge entering (domain
+   expertise) and context held (day-to-day project state) are separate. A new
+   role needs a distinct position on both, plus a distinct answer to what they
+   are reading *for*. See [`docs/reader-profiles.md`](docs/reader-profiles.md).
+   Round 2 example: "collaborator" earned its place once we saw the delta from
+   the author is trench time, not knowledge. "Funder" might earn one: knows less
+   about the method, reads for whether to keep paying.
 
 2. **Create `skills/audience-<role>/SKILL.md`** with these sections, in order:
    - frontmatter (`name`, `description` with triggers)
-   - `## Reader model` — what they know, want, and lack time for
+   - `## Reader model` — what they know, what context they hold, what they want,
+     what time they have, and **what it costs this reader when the author is
+     wrong** (the uncertainty-tolerance line; see *Regardless of role* in the
+     README)
    - `## Register rules` — what to lead with, what to withhold, length discipline
    - `## Do / don't` — at least three concrete paired examples, with real text.
      Abstract advice does not change agent behavior; examples do.
@@ -63,7 +68,7 @@ skill:
 
 - Our advisor wants the plot first, before any text.
 - Updates go in the weekly doc, never in Slack.
-- We use "referee" not "reviewer"; the skill's vocabulary confuses people here.
+- We say "collaborator" for anyone in the consortium, not just our own team.
 ```
 
 Overrides beat the general body. State that if it is not obvious to the agent.
@@ -109,6 +114,8 @@ ignore it.
 ## Style
 
 - Short sentences. Active voice. One claim per sentence.
+- Roles are priors, not boxes. Write them that way; no skill should imply its
+  reader is a fixed type.
 - Concrete over abstract. Show the bad output and the good one.
 - Mark uncertainty as uncertainty. "We think" is a fine thing to write.
 - No emoji in skill bodies.

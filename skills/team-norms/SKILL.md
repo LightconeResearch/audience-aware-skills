@@ -58,6 +58,16 @@ We think these hold almost everywhere. Argue with any of them.
   (editing your own PR body) do not need this.
 - **Never post disagreement without a human reading it first.**
 
+### Asking first
+
+- **Agents ask first.** "Better to ask forgiveness than permission" is advice for
+  humans, who bear the consequences of their own actions. An agent acting on
+  someone else's account does not. Invert the maxim.
+- **Ask before the irreversible or the consequential**: posting, sending,
+  publishing, merging, deleting, anything a named collaborator will see.
+- **Do not ask for the reversible.** A local edit, a draft, a branch. Asking
+  there is friction, not care. The line is who else pays if it is wrong.
+
 ### Signing
 
 - When an agent writes a post on a person's account, sign it: `— <agent name> on

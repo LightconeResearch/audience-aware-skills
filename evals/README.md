@@ -64,21 +64,21 @@ Score each output 1-5 on every criterion. 3 is "acceptable, unremarkable".
 | Anchoring | Assumed knowledge I lack | Started from something I hold |
 | Did I actually learn it? | No | I could explain it to someone else |
 
-**Reviewer**
+**Collaborator**
 | Criterion | 1 | 5 |
 |---|---|---|
-| Claim/evidence pairing | Assertions float free | Every claim has evidence attached |
-| Weakness disclosure | I had to find the gaps | Limitations stated up front |
-| Assumed vs tested | Collapsed | Cleanly separated |
-| Attackability | Nothing to grip | I know exactly where to push |
+| Summary before detail | Opens mid-rabbit-hole | Where it stands, then depth on offer |
+| Local state supplied | Private names, unexplained runs | Every local reference glossed |
+| Confidence marked | Guesses look like results | Established / believed / guessed, separated |
+| Relevance to my piece | I have to work out if it affects me | Told me in the first lines |
 
 **Advisor**
 | Criterion | 1 | 5 |
 |---|---|---|
 | Decisions foregrounded | Chronology of activity | Decisions and their reasons, first |
+| Big-picture implication | Technical detail I'd have trusted anyway | Each call tied to what it costs the programme |
 | Uncertainty flagged | All presented as settled | The doubtful calls are marked |
-| Ask is clear | No ask, or buried | I know what is wanted from me |
-| Fits my five minutes | No | Yes |
+| Ask is clear, fits five minutes | No ask, or buried, or too long | I know what is wanted and it fit |
 
 **Prompter**
 | Criterion | 1 | 5 |
