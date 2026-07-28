@@ -121,7 +121,9 @@ and **what is omitted**, not only in verbosity.
 
 **Judge:** four judges, one per persona. Each scores only their own version.
 Then ask a fifth: "are these four genuinely different documents, or one document
-resized?"
+resized?" This task records four rows in the results table — T6-student,
+T6-reviewer, T6-advisor, T6-prompter — plus a free-text note from the fifth,
+meta-judge pass.
 
 This is the best single demo of the premise. If T6 does not show a difference,
 the premise is in trouble and we should know that on Friday.

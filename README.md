@@ -81,7 +81,7 @@ Full protocol in [`evals/README.md`](evals/README.md).
 Clone the repo and point your agent at the skills.
 
 ```bash
-git clone <this-repo>
+git clone https://github.com/LightconeResearch/audience-aware-skills.git
 cd audience-aware-skills
 ```
 

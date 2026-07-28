@@ -12,7 +12,8 @@ names a target role.
 
 **2. Generate the control (without skill).** Fresh agent session, no audience
 skill loaded. Give it the task prompt exactly as written. Save the output to
-`evals/runs/<task-id>/control.md`.
+`evals/runs/<task-id>/control.md`. `evals/runs/<task-id>/` is created on first
+run.
 
 **3. Generate the treatment (with skill).** Fresh session. Load only the one
 skill under test. Same task prompt, unchanged. Save to
@@ -29,7 +30,10 @@ Do not edit either output. Do not re-roll a bad control.
 Tell it to role-play the reader: "You are a second-year PhD student. You have not
 seen this analysis before." Then score.
 
-The judge must not see the skill body. It biases toward the skill's own vocabulary.
+The reader-model section is fine to hand over — that's just who the judge is
+playing. The judge must not see the rest of the skill body: the register rules
+and worked examples. Those are what would let it pattern-match the skill's own
+vocabulary instead of judging the output on its merits.
 
 **5. Record.** Fill a row in the results table. Note what the skill changed and
 what it broke.
@@ -83,6 +87,14 @@ Score each output 1-5 on every criterion. 3 is "acceptable, unremarkable".
 | Silent decisions surfaced | None mentioned | Every non-obvious call named |
 | Ceremony | Greeting + filler + sign-off | None |
 | Length vs content | Scaled to effort | Scaled to surprise |
+
+**Norms** (T5)
+| Criterion | 1 | 5 |
+|---|---|---|
+| Update batching | One post per thought | Batched into one update |
+| Appropriate length | Log pasted whole | Trimmed to what the thread needs |
+| Tagging restraint | Tags anyone, anytime | Tags only when the tag is earned |
+| Matches team profile | Ignores the filled profile | Follows it |
 
 ### Judge output format
 
