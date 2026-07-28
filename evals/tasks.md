@@ -1,0 +1,127 @@
+# Eval tasks
+
+Six tasks. Each names a target role and gives a prompt to run verbatim in both
+the control and treatment conditions.
+
+Rules:
+- **Run the prompt as written.** Do not add "be concise" or "explain simply" —
+  that is the skill's job, and adding it destroys the comparison.
+- The prompt must not name the skill or the role's vocabulary.
+- Substitute your own subject matter where a task says `<...>`. Keep the same
+  substitution across control and treatment.
+
+---
+
+## T1 — Explain an analysis to a student
+
+**Role:** student
+**Skill under test:** `audience-student`
+
+> A second-year PhD student has joined the project. They know undergraduate
+> statistics and some Python. They have not worked with `<method / analysis>`
+> before. Help them understand how it works and why we do it this way.
+
+**What discriminates:** does the output ask before telling? Does it check whether
+the student followed, and does the check do any work?
+
+**Judge persona:** "You are that second-year student. You are motivated but you
+have never seen this method."
+
+---
+
+## T2 — Summarize a week of work for a supervisor
+
+**Role:** advisor
+**Skill under test:** `audience-advisor`
+
+Supply the agent with a real work record: a git log, a set of notes, or a session
+transcript covering a few days.
+
+> Here is what I did this week: `<git log / notes>`. Write the update I send to
+> my supervisor.
+
+**What discriminates:** decisions versus chronology. Is the uncertain call
+flagged? Is there a clear ask? Does it fit on one screen?
+
+**Judge persona:** "You are the PI. You supervise six people. You have four
+minutes and you are between meetings."
+
+---
+
+## T3 — Prepare a methods claim for review
+
+**Role:** reviewer
+**Skill under test:** `audience-reviewer`
+
+Supply a real piece of work — an analysis directory, a notebook, a PR.
+
+> Write the section of `<document>` that describes `<the method>` and its
+> results, for the referee report.
+
+**What discriminates:** are claims paired with evidence? Are limitations stated
+before the reviewer would find them? Is "assumed" separated from "tested"?
+
+**Judge persona:** "You are a referee. You know this subfield well. Your job is
+to find what is wrong."
+
+---
+
+## T4 — Report back on a completed task
+
+**Role:** prompter
+**Skill under test:** `audience-prompter`
+
+Give the agent a small, real, self-contained job — fix a bug, add a flag, write a
+function — with at least two decisions embedded (an ambiguous naming choice, an
+optional check that is slow).
+
+> `<the task>`. When you're done, tell me what happened.
+
+**What discriminates:** outcome in the first sentence. Are the two embedded
+decisions surfaced? Is there ceremony?
+
+**Judge persona:** "You asked for this and then went to lunch. You are back and
+you have one minute before your next thing."
+
+---
+
+## T5 — Post a PR update to a shared thread
+
+**Role:** any (norms axis)
+**Skill under test:** `team-norms`, with a filled team profile
+
+Set up a PR with three rounds of review feedback already applied.
+
+> I've addressed all the review comments on this PR. Post the update to the
+> thread.
+
+**What discriminates:** one post or several? Is the description amended rather
+than appended? Is anyone tagged, and is the tag earned? Is a log pasted whole?
+
+**Judge persona:** "You are a collaborator subscribed to this PR. You get every
+notification. You have thirty other threads."
+
+---
+
+## T6 — The same content, four ways
+
+**Role:** all four (cross-cutting)
+**Skill under test:** all four audience skills
+
+Take one substantive result — a real finding with a caveat.
+
+> Write up `<the result>` for: (a) a student who has not met the method, (b) a
+> referee, (c) my supervisor, (d) me, since I asked for it.
+
+Run once without skills, once with all four loaded.
+
+**What discriminates:** without skills, the four outputs tend to be the same
+document at four lengths. With skills they should differ in **what is led with**
+and **what is omitted**, not only in verbosity.
+
+**Judge:** four judges, one per persona. Each scores only their own version.
+Then ask a fifth: "are these four genuinely different documents, or one document
+resized?"
+
+This is the best single demo of the premise. If T6 does not show a difference,
+the premise is in trouble and we should know that on Friday.
