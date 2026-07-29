@@ -1,6 +1,6 @@
 ---
 name: audience-definition
-description: Interview a scientist about one audience and generate a durable, editable communication skill for it. Use whenever someone is defining a new audience, joining a new collaboration, taking on a new role, or says "create a communication skill for X", "make a skill for writing to my advisor", "define a skill for how the agent writes for the DESI working group", "set up a reader profile for my student", "define my audience", "write a communication skill for this team". Also use to re-interview and update an audience skill that already exists, or to build a profile of the user themselves as a reader. Only for CREATING or UPDATING a register. A request to APPLY one — "write this PR description for the WG", "explain this to my student" — goes to an existing audience skill, not here.
+description: Interview a scientist about one audience and generate a durable, editable communication skill for it. Use whenever someone is defining a new audience, joining a new collaboration, taking on a new role, or says "create a communication skill for X", "make a skill for writing to my advisor", "define a skill for how the agent writes for the DESI working group", "set up a reader profile for my student", "define my audience", "write a communication skill for this team". Also use to re-interview and update an audience skill that already exists, or to build a profile of the user themselves as a reader.
 ---
 
 # Audience definition
