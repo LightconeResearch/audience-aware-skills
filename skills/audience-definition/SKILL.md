@@ -46,71 +46,80 @@ Where the interview contradicts the prior, the interview wins.
 
 ## 2. Interview
 
-First settle **who is being modelled** — two interviews wear the same
+**Q1 — who is this for. Ask it first.** Two different products wear the same
 clothes:
 
-- **First-hand** — the user is the reader ("how should agents write *to
-  me*"). Reliable; use their words.
-- **Second-hand** — the user is an author describing an audience ("how should
-  I write to my advisor"). The verbatim questions ask about the *interviewee*,
-  but the skill is about the *reader* — so ask the reader-facing version too:
-  what the reader is to the author, how long the reader gives one artifact,
-  what the *reader* found hard to parse. The author's answers size the
-  interview; they do not fill the reader model. If a reader-facing answer is
-  unavailable, leave that slot unknown and say so. The generated skill states
-  whose model it is and marks the guesses; suggest the cheap fix of sending
-  the standard questions to the actual reader.
+> **Is this for how the agent communicates with you — the register you want
+> in your own chat — or for external communication, aimed at someone who is
+> not you?**
 
-Four standard questions, Q1–Q4. Ask them verbatim; do not paraphrase them
-into your own voice. Ask in small batches — two or three per turn, not a
-form. Reflect back what you heard. Stop early when you have enough.
+- **User-facing.** The reader is the user themselves. This register applies
+  to *every message the agent sends them*, so the natural home is the global
+  `CLAUDE.md` / `AGENTS.md` rather than a skill that must trigger (offer
+  both in step 4). The answers are first-hand and reliable; use their words.
+  If what they want is to *learn* — not just be talked to well — combine the
+  interview with [`references/learning-prompt.md`](references/learning-prompt.md),
+  the strongest known student-register prompt; its moves are time-gated.
+- **External.** The reader is someone else, and the interview is usually
+  second-hand: the verbatim questions ask about the *interviewee*, but the
+  skill is about the *reader*. Ask the reader-facing versions too — what the
+  reader is to the author, how long the reader gives one artifact, what the
+  *reader* found hard to parse. The author's answers size the interview;
+  they do not fill the reader model. If a reader-facing answer is
+  unavailable, leave that slot unknown and say so. The generated skill
+  states whose model it is and marks the guesses; suggest the cheap fix of
+  sending the standard questions to the actual reader.
 
-**Q1 — time budget. Ask it alone, first, before anything else.** It sizes the
-interview itself, so nothing can precede it.
+Then four standard questions, Q2–Q5. Ask them verbatim; do not paraphrase
+them into your own voice. Ask in small batches — two or three per turn, not
+a form. Reflect back what you heard. Stop early when you have enough.
+
+**Q2 — time budget. Ask it alone, before the rest.** It sizes the interview
+itself.
 
 > **How long do you have right now? Two minutes / fifteen / an hour / as long
 > as it takes**
 
-**Q2 — role** ("something else" is the most useful answer):
+**Q3 — role** ("something else" is the most useful answer):
 
 > **Which role applies to you the most as part of this research team?
 > 1. Advisor 2. Peer 3. Student 4. Something else -- please provide**
 
-**Q3 — gap handling** (the teaching-vs-briefing dial; sharper than the role
+**Q4 — gap handling** (the teaching-vs-briefing dial; sharper than the role
 label):
 
 > **When you hit something you don't know, do you want the answer, an
 > explanation of the topic, or a question that gets you there?**
 
-**Q4 — parsing failure** (the richest question — push for a specific
+**Q5 — parsing failure** (the richest question — push for a specific
 incident, **except at two minutes, where you skip it entirely**):
 
 > **Tell me about the last time AI-assisted work was difficult to parse. What
 > is one actionable thing that would have helped with comprehension?**
 
-Alongside Q2, take one line of context: which collaboration, which surfaces
+Alongside Q3, take one line of context: which collaboration, which surfaces
 (PRs, issues, Slack, reports, talks).
 
 Optional follow-ups, skipped freely under a tight budget:
 
-- **Q5 — knowledge entering, and context held.** Two separate axes; collapsing
+- **Q6 — knowledge entering, and context held.** Two separate axes; collapsing
   them is the most common modelling error.
-- **Q6 — what should they be able to do afterward?** Roles are defined by
+- **Q7 — what should they be able to do afterward?** Roles are defined by
   goals, not knowledge.
-- **Q7 — cost of being wrong.** Can this reader push back in a sentence, or do
+- **Q8 — cost of being wrong.** Can this reader push back in a sentence, or do
   they absorb the error and build on it? Sets the uncertainty rule.
-- **Q8 — artifacts and local norms.** Two or three surfaces that actually
+- **Q9 — artifacts and local norms.** Two or three surfaces that actually
   occur; only what differs from general etiquette.
-- **Q9 — one norm an outsider would get wrong**, and one thing that has
+- **Q10 — one norm an outsider would get wrong**, and one thing that has
   annoyed people here.
-- **Q10 — real examples.** One thing that landed, one that did not. Two real
+- **Q11 — real examples.** One thing that landed, one that did not. Two real
   samples beat twenty adjectives.
 
 **The time answer binds the interview:**
 
-- **Two minutes** — Q2 and Q3 only, with the one-line context. Skip Q4.
-- **Fifteen** — add Q4 and Q5–Q8.
-- **An hour or more** — add Q9 and Q10, and walk the draft line by line.
+- **Two minutes** — Q3 and Q4 only, with the one-line context. Skip Q5.
+- **Fifteen** — add Q5 and Q6–Q9.
+- **An hour or more** — add Q10 and Q11, and walk the draft line by line.
 
 Say which mode you are in: a short interview makes a thinner skill, and the
 user should know that is what they are buying.
@@ -121,14 +130,14 @@ Pause before writing anything. Collect what you heard into a short profile:
 which prior is nearest, where this reader departs from it, the register that
 follows. Mapping notes:
 
-- Q2 asks what the **interviewee** is; priors are named for what the
+- Q3 asks what the **interviewee** is; priors are named for what the
   **reader** is. First-hand, map straight through. Second-hand, ask what the
   audience is *to the author* and map that — a WG lead writing to their WG
   lands on student or collaborator, never advisor.
 - **Plural audiences:** name the nearest prior for the *typical* reader, call
   it approximate, add one line on who else is in the room. Do not stack
   priors.
-- **Time is two quantities.** The Q1 answer is the interviewee's afternoon;
+- **Time is two quantities.** The Q2 answer is the interviewee's afternoon;
   the reader's `Time:` slot is how long that audience gives one artifact.
   First-hand they are close; second-hand they are unrelated — ask, or leave
   the slot out.
@@ -144,6 +153,8 @@ Always ask; do not assume. Two decisions, both the user's:
 
 **Location.** Global (`~/.claude/skills/`, live everywhere immediately), the
 project's `.claude/skills/` (audience is project-bound), or a shared repo.
+A **user-facing** register (Q1) applies to every message, so offer the global
+`CLAUDE.md` / `AGENTS.md` as its home instead of a skill that must trigger.
 Profiles describe real, named colleagues — **never write one into a git repo
 without the user's explicit permission.**
 
@@ -212,7 +223,7 @@ question or cut it.
 
 An audience skill goes stale because the user's model of the team improves.
 When updating: read the existing file first, ask what changed and what turned
-out wrong, re-ask Q10 (examples turn over fastest), and **edit in place
+out wrong, re-ask Q11 (examples turn over fastest), and **edit in place
 rather than regenerating** — the user's own edits are the most valuable
 content in the file and they survive. Preserve the `name` and directory.
 Check any reference files too. Do not badger: never offer to re-interview

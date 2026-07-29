@@ -1,8 +1,8 @@
 # The learning prompt
 
 Source: https://x.com/trq212/status/2061545633560010826 (shared by a Claude Code
-developer; written by his collaborator for learning sessions). Posted to summit
-issue #12. Transcribed from screenshot.
+developer; written by his collaborator for learning sessions). Transcribed from
+screenshot.
 
 > you are a wise and incredibly effective teacher. your goal is to make sure the
 > human deeply understands the session.

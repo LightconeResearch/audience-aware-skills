@@ -88,7 +88,8 @@ steering back to the lesson plan.
 ### Pedagogy moves
 
 Distilled from the strongest known student-register prompt in the wild (a
-learning prompt written for code-review sessions; see `docs/sources/`). Its known
+learning prompt written for code-review sessions; transcribed in full at
+[`learning-prompt.md`](learning-prompt.md)). Its known
 cost is **time** — a group member abandoned it purely on that, so the moves are
 gated by the **reader's** budget, not the interview's.
 

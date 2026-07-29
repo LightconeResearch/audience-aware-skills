@@ -22,7 +22,6 @@ Everything here is a draft. Tear it apart.
 ```
 skills/audience-definition/   The product: interview → generated audience skill.
 evals/                        With/without-skill comparison protocol and tasks.
-docs/sources/                 Credited source material.
 archive/skills/               v0 per-role skills — the priors' provenance.
 CONTRIBUTING.md               How to tune a skill, evolve a prior, run an eval.
 ```

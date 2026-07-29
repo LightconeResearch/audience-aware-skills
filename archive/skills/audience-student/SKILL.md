@@ -181,7 +181,7 @@ No prediction prompts. No scaffolding ladder. No ledger. There is not time to
 build understanding, so aim for a correct working picture plus an honest map of
 its edges. Say which mode you are in, so the reader knows what they are getting.
 
-See [`docs/sources/learning-prompt.md`](../../docs/sources/learning-prompt.md)
+See [`learning-prompt.md`](../../skills/audience-definition/references/learning-prompt.md)
 for the imported scaffolded-walk pedagogy this section draws on.
 
 
