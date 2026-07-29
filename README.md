@@ -19,6 +19,28 @@ Seeded at the AAI4Science Developer Summit
 ([issue #12](https://github.com/LightconeResearch/AAI4ScienceDeveloperSummit/issues/12)).
 Everything here is a draft. Tear it apart.
 
+## Install
+
+**Claude Code** (as a plugin):
+
+```
+/plugin marketplace add LightconeResearch/audience-aware-skills
+/plugin install audience-aware-skills@lightcone
+```
+
+**Codex**: skills are discovered from `.agents/skills/`, which this repo
+provides — clone it and work from inside it, or copy the skill globally:
+
+```
+cp -r skills/audience-definition ~/.agents/skills/
+```
+
+**Manual** (any agent that reads `~/.claude/skills/`):
+
+```
+cp -r skills/audience-definition ~/.claude/skills/
+```
+
 ## Layout
 
 ```
