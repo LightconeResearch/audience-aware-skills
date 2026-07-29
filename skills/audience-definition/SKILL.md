@@ -5,64 +5,61 @@ description: Interview a scientist about one audience and generate a durable, ed
 
 # Audience definition
 
-A scientist is in several collaborations at once, with a different role in
-each: lead of one working group, one voice among hundreds in another, sole
-advisor to one student. Each deserves its own communication register, and the
-register does not survive between sessions in the agent's head. It lives in a
-small skill file. This skill produces those files: interview once, generate a
-draft, hand it over. The user edits it and keeps it for years.
+Your role: understand how the user wants to communicate and who the audience
+is, combine that understanding with general best practices, and produce a new
+communication skill for that audience. **The user wants a draft they can edit.
+They never want to write it themselves.** Ask few questions, ask them well,
+generate something opinionated and concrete, and be explicit about what you
+guessed.
 
-**The user wants a draft they can edit. They never want to write it
-themselves.** That is the whole product constraint. Ask few questions, ask
-them well, generate something opinionated and concrete, and be explicit about
-what you guessed.
-
-The architecture in one sentence: the LLM's job is to model the reader; the
-skill's job is to supply the best practices that merge with that model. Here
-you do both. This skill is self-contained: the reader-role priors are in
-[`references/priors.md`](references/priors.md), the skeleton and constant
-blocks in [`assets/template.md`](assets/template.md). Nothing outside this
+This skill is self-contained. The reader-role priors are in
+[`references/priors.md`](references/priors.md); the skeleton and constant
+blocks are in [`assets/template.md`](assets/template.md). Nothing outside this
 directory is load-bearing.
 
-## Priors
+The steps, in order:
 
-Do not generate from nothing. Five priors: `audience-student`,
-`audience-collaborator`, `audience-advisor`, `audience-prompter`, and
-`team-norms` (etiquette for shared surfaces, not a reader). They are
-non-exhaustive, non-exclusive, and no reader fits one perfectly. The generated
-skill is a **specialization of a prior, not a fresh essay** — that is what
-keeps ten of them consistent with each other.
+1. **Read the priors** — orient in the space of common roles before asking
+   anything.
+2. **Interview** — sized by the user's time budget.
+3. **Synthesize a profile and repeat it back** — iterate until the user
+   recognizes it.
+4. **Ask where the skill should live.**
+5. **Generate** — turn profile + template into a full skill, holistically.
+6. **Hand over.**
 
-**Read [`references/priors.md`](references/priors.md) before generating.** It
-carries each prior in full — reader model, register, failure modes, the
-student pedagogy moves with their time gates — plus the two axes (knowledge
-entering vs. context held) used to place a "something else" answer.
+## 1. Read the priors
 
-Where the interview contradicts the prior, the interview wins. Say so in one
-line when you hand over.
+Read [`references/priors.md`](references/priors.md) before interviewing. It
+describes five priors — `audience-student`, `audience-collaborator`,
+`audience-advisor`, `audience-prompter`, and `team-norms` (etiquette for
+shared surfaces, not a reader) — each in full: reader model, register,
+failure modes, and (for the student) pedagogy moves with time gates. It also
+gives the two axes (knowledge entering vs. context held) used to place a
+"something else" answer.
 
-## Who is being modelled?
+Priors are non-exhaustive, non-exclusive, and no reader fits one perfectly.
+They inform the interview: they tell you what to listen for and which
+follow-up matters. The generated skill is a **specialization of a prior, not
+a fresh essay** — that is what keeps ten of them consistent with each other.
+Where the interview contradicts the prior, the interview wins.
 
-Two interviews wear the same clothes. Settle this in the first exchange.
+## 2. Interview
 
-- **First-hand** — interviewing the reader themselves ("how should agents
-  write *to me*"). Reliable. Ask directly, use their words.
-- **Second-hand** — interviewing an author about an audience they write *for*
-  ("how should I write to my advisor"). The generated skill says whose model
-  it is and marks the guesses. Suggest the cheap fix: send the standard
-  questions to the actual reader.
+First settle **who is being modelled** — two interviews wear the same
+clothes:
 
-In second-hand mode every standard question has a second version: the
-verbatim form asks about the *interviewee*; the skill is about the *reader*.
-Ask the reader-facing version too (what the reader is to the author, how long
-the reader gives one artifact, what the *reader* found hard to parse, what the
-*reader* wants at a gap). The author's answers size the interview; they do not
-fill the reader model. If the author cannot answer a reader-facing version,
-leave that slot unknown and say so. This propagates into the generated skill's
-`## Confidence in this model` block — delete that block only when the model is
-first-hand and complete.
-
-## The interview
+- **First-hand** — the user is the reader ("how should agents write *to
+  me*"). Reliable; use their words.
+- **Second-hand** — the user is an author describing an audience ("how should
+  I write to my advisor"). The verbatim questions ask about the *interviewee*,
+  but the skill is about the *reader* — so ask the reader-facing version too:
+  what the reader is to the author, how long the reader gives one artifact,
+  what the *reader* found hard to parse. The author's answers size the
+  interview; they do not fill the reader model. If a reader-facing answer is
+  unavailable, leave that slot unknown and say so. The generated skill states
+  whose model it is and marks the guesses; suggest the cheap fix of sending
+  the standard questions to the actual reader.
 
 Four standard questions, Q1–Q4. Ask them verbatim; do not paraphrase them
 into your own voice. Ask in small batches — two or three per turn, not a
@@ -74,7 +71,7 @@ interview itself, so nothing can precede it.
 > **How long do you have right now? Two minutes / fifteen / an hour / as long
 > as it takes**
 
-**Q2 — role** (picks the prior; "something else" is the most useful answer):
+**Q2 — role** ("something else" is the most useful answer):
 
 > **Which role applies to you the most as part of this research team?
 > 1. Advisor 2. Peer 3. Student 4. Something else -- please provide**
@@ -85,9 +82,8 @@ label):
 > **When you hit something you don't know, do you want the answer, an
 > explanation of the topic, or a question that gets you there?**
 
-**Q4 — parsing failure** (fills the `Do / don't` pair in the reader's own
-vocabulary; the richest question — push for a specific incident, **except at
-two minutes, where you skip it entirely**):
+**Q4 — parsing failure** (the richest question — push for a specific
+incident, **except at two minutes, where you skip it entirely**):
 
 > **Tell me about the last time AI-assisted work was difficult to parse. What
 > is one actionable thing that would have helped with comprehension?**
@@ -95,7 +91,7 @@ two minutes, where you skip it entirely**):
 Alongside Q2, take one line of context: which collaboration, which surfaces
 (PRs, issues, Slack, reports, talks).
 
-Then optional follow-ups, skipped freely under a tight budget:
+Optional follow-ups, skipped freely under a tight budget:
 
 - **Q5 — knowledge entering, and context held.** Two separate axes; collapsing
   them is the most common modelling error.
@@ -104,7 +100,7 @@ Then optional follow-ups, skipped freely under a tight budget:
 - **Q7 — cost of being wrong.** Can this reader push back in a sentence, or do
   they absorb the error and build on it? Sets the uncertainty rule.
 - **Q8 — artifacts and local norms.** Two or three surfaces that actually
-  occur; only what differs from `team-norms`.
+  occur; only what differs from general etiquette.
 - **Q9 — one norm an outsider would get wrong**, and one thing that has
   annoyed people here.
 - **Q10 — real examples.** One thing that landed, one that did not. Two real
@@ -112,55 +108,82 @@ Then optional follow-ups, skipped freely under a tight budget:
 
 **The time answer binds the interview:**
 
-- **Two minutes** — Q2 and Q3 only, with the one-line context. Skip Q4. No
-  follow-ups. Generate from the prior and mark what came from the prior.
+- **Two minutes** — Q2 and Q3 only, with the one-line context. Skip Q4.
 - **Fifteen** — add Q4 and Q5–Q8.
 - **An hour or more** — add Q9 and Q10, and walk the draft line by line.
 
 Say which mode you are in: a short interview makes a thinner skill, and the
-user should know that is what they are buying. Two-minute mode is
-prior-derived and legitimate **if labelled**: mark prior-filled blocks
-`<!-- from prior: audience-X, not confirmed -->`, leave unasked sections as
-`<!-- unasked: … -->`, and say so in `## Confidence in this model`. Never
-write a prior-derived line in the voice of a user answer.
+user should know that is what they are buying.
 
-### Role → prior
+## 3. Synthesize the profile, repeat it back
 
-Q2 asks what the **interviewee** is; priors are named for what the **reader**
-is. Confusing them inverts the register.
+Pause before writing anything. Collect what you heard into a short profile:
+which prior is nearest, where this reader departs from it, the register that
+follows. Mapping notes:
 
-- **First-hand:** map straight through (Advisor → `audience-advisor`, Peer →
-  `audience-collaborator`, Student → `audience-student`).
-- **Second-hand:** ask what the audience is *to the author*, and map that. A
-  WG lead writing to their WG lands on student or collaborator, never advisor.
+- Q2 asks what the **interviewee** is; priors are named for what the
+  **reader** is. First-hand, map straight through. Second-hand, ask what the
+  audience is *to the author* and map that — a WG lead writing to their WG
+  lands on student or collaborator, never advisor.
 - **Plural audiences:** name the nearest prior for the *typical* reader, call
   it approximate, add one line on who else is in the room. Do not stack
   priors.
-- **"Something else":** place it on the two axes in `references/priors.md`
-  plus can-they-push-back-cheaply; keep their label in the reader model.
+- **Time is two quantities.** The Q1 answer is the interviewee's afternoon;
+  the reader's `Time:` slot is how long that audience gives one artifact.
+  First-hand they are close; second-hand they are unrelated — ask, or leave
+  the slot out.
 
-**Time is two quantities.** The Q1 answer is the interviewee's afternoon; the
-reader's `Time:` slot is how long that audience gives one artifact.
-First-hand they are close; second-hand they are unrelated — ask, or leave the
-slot out.
+Then repeat the profile back in two or three lines — "writing for: a peer, no
+context on my last week, ten minutes, wants to decide whether to rerun their
+half; correct me if that is wrong" — and iterate until the user recognizes
+it. This is cheap and it catches a mis-model before anything is built on it.
 
-## Generating the skill
+## 4. Ask where the skill lives
 
-1. **Reveal your model before you write.** Two or three lines, then "correct
-   me if that is wrong." It catches a mis-model before you build on it.
-2. Read `assets/template.md` (skeleton) and the chosen prior in
-   `references/priors.md`. Fill the slots; constants copy through.
-3. **Never write a line in the voice of a user answer unless the user said
-   it.** A guess dressed as a fact is the one output that makes this skill
-   worse than nothing. Empty is honest; labelled prior-derived is fine.
-4. Write to `~/.claude/skills/audience-<slug>/SKILL.md`, creating the
-   directory — live immediately, no install step. Alternatives only if asked:
-   the project's `.claude/skills/`, or a shared repo. **Never write a profile
-   of a real person into a git repo without the user's explicit permission.**
-   Overflow goes in `references/<topic>.md` beside the generated SKILL.md.
-5. If the generated skill references `team-norms` by name, inline the
-   load-bearing lines — a norms section that points at an absent skill has no
-   norms section.
+Always ask; do not assume. Two decisions, both the user's:
+
+**Location.** Global (`~/.claude/skills/`, live everywhere immediately), the
+project's `.claude/skills/` (audience is project-bound), or a shared repo.
+Profiles describe real, named colleagues — **never write one into a git repo
+without the user's explicit permission.**
+
+**Layout.** Two shapes, user's choice:
+
+- **One skill per audience** — `audience-<slug>/SKILL.md` each. Simple,
+  independent.
+- **One personal communication skill** — common principles and personal
+  constants (sign-offs, voice) in the body, one reference file per audience
+  (`references/desi.md`, `references/advisor.md`). Fewer skills, no
+  duplication of the shared parts. If the user already has such a skill, add
+  a reference file to it instead of creating a new skill.
+
+Keep whichever shape they pick minimal.
+
+## 5. Generate
+
+Read [`assets/template.md`](assets/template.md) and the chosen prior, then
+write the skill from your **holistic understanding of the profile** — the
+person communicating, their role, and who the audience is. This is not a
+mechanical mapping of answers onto template slots; the template is a
+skeleton, and the profile is what animates it. Constants copy through.
+Reference files beside the generated skill are allowed when the user wants
+them, not required.
+
+Rules:
+
+- **Never write a line in the voice of a user answer unless the user said
+  it.** A guess dressed as a fact is the one output that makes this skill
+  worse than nothing. Prior-derived content is legitimate **if labelled**:
+  mark such blocks `<!-- from prior: audience-X, not confirmed -->`, leave
+  unasked sections as `<!-- unasked: … -->`, and say so plainly in the
+  generated skill's `## Confidence in this model` block. Delete that block
+  only when the model is first-hand and complete.
+- If the reader is student-shaped, apply the pedagogy moves and their time
+  gates from the Student section of `references/priors.md` — gated by the
+  **reader's** budget, not the interview's.
+- If the generated skill references `team-norms` by name, inline the
+  load-bearing lines — a norms section that points at an absent skill has no
+  norms section.
 
 Craft rules for the generated file: all triggering lives in the frontmatter
 description (name the audience, the artifacts, the phrases the user will
@@ -170,24 +193,11 @@ stacking MUSTs. Do not overfit to one anecdote — generalize the move, keep
 the example as illustration. Name it plainly (`audience-desi-lensing-wg`).
 Reread it cold and cut.
 
-### Student-type skills
-
-Fire the pedagogy when the **reader** is student-shaped: the prior is
-`audience-student`, or the reader-facing gap answer is "a question that gets
-me there". (In second-hand mode the author's own Q3 answer triggers nothing —
-a WG lead who likes Socratic treatment does not make their WG a class.)
-
-The teaching moves and their time gates live in `references/priors.md`
-(Student section) and the template's `Teaching moves` block. **Gate by the
-reader's budget, not the interview's:** an hour gets all the moves; fifteen
-minutes gets restate-first, drill-the-whys, and the five-minute artifact; two
-minutes gets the five-minute artifact alone.
-
-## Handing it over
+## 6. Hand over
 
 Five things, no ceremony:
 
-1. Where the file is; if `~/.claude/skills/`, it is already live.
+1. Where the file is; if global, it is already live.
 2. The reader model quoted inline, with "correct me if that is wrong."
 3. The two or three lines you were least sure about, named as guesses.
 4. One trigger phrase they can try right now.
@@ -205,9 +215,8 @@ When updating: read the existing file first, ask what changed and what turned
 out wrong, re-ask Q10 (examples turn over fastest), and **edit in place
 rather than regenerating** — the user's own edits are the most valuable
 content in the file and they survive. Preserve the `name` and directory.
-Check any `references/` sibling too. Do not badger: never offer to
-re-interview more than once a day, and only when something suggests the model
-has moved.
+Check any reference files too. Do not badger: never offer to re-interview
+more than once a day, and only when something suggests the model has moved.
 
 ## Failure modes
 

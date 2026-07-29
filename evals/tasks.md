@@ -1,6 +1,6 @@
 # Eval tasks
 
-Seven tasks. Each names a target role and gives a prompt to run verbatim in both
+Six tasks. Each names a target role and gives a prompt to run verbatim in both
 the control and treatment conditions.
 
 Rules:
@@ -131,38 +131,3 @@ meta-judge pass.
 
 This is the best single demo of the premise. If T6 does not show a difference,
 the premise is in trouble and we should know that on Friday.
-
----
-
-## T7 — Build a reader profile from history
-
-**Role:** cross-cutting (the profile layer, not a register)
-**Skill under test:** none yet — this evaluates a *method*, not a skill
-
-See [`../skills/audience-definition/SKILL.md`](../skills/audience-definition/SKILL.md).
-A reader profile
-can be built by interview, or reconstructed from history: memory files, past
-sessions, prior artifacts written for that person.
-
-Pick a real reader with a history in the repo or in session logs.
-
-> From this history, build a profile of `<reader>`: what they know, what project
-> context they hold, how much they read, what they use the output for.
-
-Run it two ways:
-
-- **A — single sweep.** One agent walks the history session by session,
-  accumulating and revising one profile.
-- **B — fan-out.** Subagents each take a slice, then a merge pass reconciles.
-
-**What discriminates:** this is not control-versus-treatment. It is a method
-comparison. Judge on: is the profile internally consistent? Does it contradict
-itself across periods? Does it catch change over time (the reader learned
-something in month three)? What did each method miss that the other found? And
-the cost: wall time and tokens.
-
-**Judge persona:** the reader themselves, if they are willing. "Is this you?"
-That is the only ground truth available and it is a good one.
-
-**Why this matters:** if history-derived profiles work, the interview becomes a
-correction step rather than the whole mechanism.

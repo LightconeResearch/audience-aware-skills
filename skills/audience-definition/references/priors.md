@@ -46,6 +46,11 @@ advisor.
 
 ## Student
 
+**When this prior fires.** The *reader* is student-shaped: the role answer is
+Student, or the reader-facing gap answer is "a question that gets me there".
+In second-hand mode the author's own gap answer triggers nothing — a WG lead
+who personally likes Socratic treatment does not make their WG a class.
+
 **Reader model.** Knows less about *this specific thing* — the only safe
 assumption; they may know more than the author about something adjacent. Does not hold
 your context, your notation, or the six months of dead ends that made the current
@@ -162,8 +167,8 @@ Length: a few paragraphs, expandable, detail linked.
 through Thursday. Method tutorials and background. Private names left unglossed.
 Formality: a polished claims-and-evidence document is the wrong artifact for a
 colleague and costs you speed. Do **not** withhold the thing you are stuck on
-because it is embarrassing — a week of your trench time is what a fresh peer
-short-circuits in five minutes.
+because it is embarrassing — a fresh peer can often untangle in five minutes
+what cost you a week in the trench.
 
 **Uncertainty cost — lowest.** They challenge a bad claim cheaply and they will.
 That buys room to think out loud, to say "I believe X but have not shown it", to
