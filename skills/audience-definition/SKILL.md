@@ -23,7 +23,7 @@ team changes — which it will, faster than they expect.
 That is the whole product constraint. Ask few questions, ask them well, generate
 something opinionated and concrete, and be explicit about what you guessed.
 
-The architecture, unchanged from the repo README:
+The architecture, in one sentence:
 
 > The LLM's job is to model the reader; the skill's job is to supply the best
 > practices that merge with that model.
@@ -31,32 +31,41 @@ The architecture, unchanged from the repo README:
 Here you do both: interview to get the reader, merge with the constants in
 `assets/template.md`.
 
-## Priors: the existing role skills
+This skill is **self-contained**. Everything generation needs lives in this
+directory: the priors in `assets/priors.md`, the skeleton and the constant blocks
+in `assets/template.md`. Nothing outside it is load-bearing.
 
-Do not generate from nothing. The table below is the distilled prior — everything
-this skill needs at generation time. Pick the one or two rows that fit and match
-their register.
+## Priors: common roles in science
 
-| Prior | Reader |
-|---|---|
-| `audience-student` | knows less; wants to understand, not to be told |
-| `audience-collaborator` | peer, same expertise, no trench time |
-| `audience-advisor` | knows *differently*; authority and altitude; five minutes |
-| `audience-prompter` | asked for the work; wants outcome and decisions |
-| `team-norms` | etiquette for shared surfaces: cadence, length, tagging |
+Do not generate from nothing. Four priors, plus a norms layer that is not a
+reader. They are **non-exhaustive, non-exclusive, and no reader fits one
+perfectly** — a prior is where you start when you know nothing else, and the
+interview turns it into a profile. The generated skill is a **specialization of a
+prior, not a fresh essay**; that is what keeps ten of these consistent with each
+other.
 
-Read `README.md` and `docs/reader-profiles.md` for the two-axes framing. The
-generated skill is a **specialization of a prior, not a fresh essay** — that is
-what keeps ten of these consistent with each other. (The original v0 drafts
-these rows were distilled from live in `archive/skills/`, for history — not
-needed to run this interview.)
+| Prior | Reader | Register in one line |
+|---|---|---|
+| `audience-student` | knows less about *this*; low context; cannot push back cheaply | ask before you tell, scaffold in three levels, be surest here |
+| `audience-collaborator` | peer, same expertise; the gap is trench time, not knowledge | summary first, name your state, think out loud but mark it |
+| `audience-advisor` | knows *differently* — altitude, incentives, authority; five minutes | lead with the decision, flag the calls you doubt, one screen |
+| `audience-prompter` | asked for the work; knows the goal, not the work | outcome first, surface the silent decisions, no ceremony |
+| `team-norms` | not a reader — etiquette for shared surfaces | batch, keep it short, tag for action only, ask before posting |
 
-`docs/reader-profiles.md` describes its own "four questions". It predates the
-summit set and its Q3 and Q4 are this skill's optional Q5 and Q6. **Use the four
-below.** Read reader-profiles for the axes and the reasoning, not for the script.
+**Read [`assets/priors.md`](assets/priors.md) before generating.** It carries
+each prior in full: reader model, what to lead with, what to withhold, the
+uncertainty-cost line, structures that work, failure modes, and the student
+pedagogy moves with their time gates. It also carries the two-axes framing —
+knowledge entering versus context held — which is where you place a "something
+else" answer.
 
 Where the interview contradicts the prior, the interview wins. Say so in one line
 when you hand over. That contradiction is data for the repo.
+
+(See also, never required: the v0 role skills these were distilled from are
+archived at `archive/skills/`; the framing essays are `README.md` and
+`docs/reader-profiles.md`, whose older "four questions" are superseded — its Q3
+and Q4 are this skill's optional Q5 and Q6. **Use the four below.**)
 
 ## Before you start: who is being modelled?
 
@@ -146,10 +155,11 @@ register.
 the nearest prior for the *typical* reader, call it approximate, and add one line
 to `Reader model` on who else is in the room. Do not stack four priors.
 
-**"Something else."** Ask what they would call it, then place it on the README's
-two axes — knowledge relative to yours, ability to push back. Those pick the
-nearest prior. Keep their label in the reader model; put what the prior gets
-wrong in `Open questions`.
+**"Something else."** Ask what they would call it, then place it on the two axes
+in `assets/priors.md` — knowledge entering versus context held — plus the third
+question of whether they can push back cheaply. Those pick the nearest prior.
+Keep their label in the reader model; put what the prior gets wrong in `Open
+questions`.
 
 **Time is two quantities.** The budget answer is the interviewee's afternoon. The
 reader's `Time:` slot is how long that audience gives one artifact. First-hand,
@@ -204,9 +214,10 @@ prior-derived line in the voice of a user answer.
 
 1. **Reveal your model before you write.** Two or three lines, then "correct me
    if that is wrong." Cheap, and it catches a mis-model before you build on it.
-2. Read `assets/template.md`. The priors table above is sufficient to fill it;
-   read the archived draft at `archive/skills/<the-prior>/SKILL.md` only if you
-   want more texture on tone than the table row gives.
+2. Read `assets/template.md` for the skeleton and `assets/priors.md` for the
+   prior you picked. Those two are sufficient to fill it. (The archived v0 draft
+   at `archive/skills/<the-prior>/SKILL.md` has more worked examples, if this
+   repo happens to be at hand — never required.)
 3. Fill the slots. Constants copy through. **Never write a line in the voice of a
    user answer unless the user said it.** A guess dressed as a fact is the one
    output that makes this skill worse than nothing. Prior-derived content is
@@ -255,13 +266,14 @@ In second-hand mode the dial answer is about the author unless you asked the
 reader-facing version, so it does not trigger anything on its own. A WG lead who
 personally likes Socratic treatment does not make their working group a class.
 
-When it does fire, the generated skill inherits the moves from
-[`docs/sources/learning-prompt.md`](../../docs/sources/learning-prompt.md):
-restate before explain, incremental mastery gates, a running comprehension
-checklist, drill the whys, quiz without revealing, do not end until verified.
+When it does fire, the generated skill inherits the pedagogy moves in
+`assets/priors.md` (the Student section): restate first, drill the whys,
+do-not-end-until-verified, incremental mastery gates, the comprehension ledger,
+quiz without revealing. The template's `Teaching moves` block is the short form
+of the same list.
 
-**Gate them by time budget.** That prompt was abandoned by a group member purely
-on time — it is excellent and it costs thirty minutes.
+**Gate them by time budget.** The source prompt was abandoned by a group member
+purely on time — it is excellent and it costs thirty minutes.
 
 The budget here is the **reader's**, not the interview's. Copy only the bullets
 the gate allows; the template marks each one.
@@ -288,8 +300,8 @@ Short. Five things, no ceremony:
 
 Then stop. Do not walk them through the whole file — they will read it. Never ask
 the user to write a section themselves; if a slot is empty, ask one more question
-or cut it. Offer the with/without eval loop (`evals/README.md`) as an option;
-most users want the file and nothing else.
+or cut it. If this repo is at hand you may offer its with/without eval loop
+(`evals/README.md`) as an option; most users want the file and nothing else.
 
 ## Re-interviewing
 
@@ -325,5 +337,6 @@ that only touches `SKILL.md` misses it.
   for that reason. Is that enough?
 - What is cached per person and what is re-asked per artifact? Time changes every
   session; domain knowledge does not.
-- Can a profile be drafted from history instead of an interview? T7 in
-  `evals/tasks.md`.
+- Can a profile be drafted from history instead of an interview — memory files,
+  past sessions, prior artifacts written for this person — rather than by asking?
+  Filed as T7 in this repo's `evals/tasks.md`.

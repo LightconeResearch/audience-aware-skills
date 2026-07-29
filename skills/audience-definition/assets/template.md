@@ -118,7 +118,7 @@ what it looks like in practice:
 {{ STUDENT-TYPE ONLY — include the block below when the READER is student-shaped:
 the prior is audience-student, or the dial answer is "a question" and it was
 asked about the reader. An author's own preference does not trigger it.
-Inherited from `docs/sources/learning-prompt.md`. Each bullet is tagged with the
+Full versions of these moves are in `priors.md`, Student section. Each bullet is tagged with the
 reader time budget it survives — copy only the bullets that pass, and delete the
 tags. }}
 
