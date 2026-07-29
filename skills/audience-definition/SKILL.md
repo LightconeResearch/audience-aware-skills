@@ -63,9 +63,7 @@ Where the interview contradicts the prior, the interview wins. Say so in one lin
 when you hand over. That contradiction is data for the repo.
 
 (See also, never required: the v0 role skills these were distilled from are
-archived at `archive/skills/`; the framing essays are `README.md` and
-`docs/reader-profiles.md`, whose older "four questions" are superseded — its Q3
-and Q4 are this skill's optional Q5 and Q6. **Use the four below.**)
+archived at `archive/skills/`.)
 
 ## Before you start: who is being modelled?
 
@@ -227,8 +225,9 @@ prior-derived line in the voice of a user answer.
    That is the default and it means the skill works the moment you finish — no
    install step. Two alternatives, only if the user asks: the project's own
    `.claude/skills/` when the audience is project-bound, or this repo's `skills/`
-   when they mean to share it. Do not default to this repo: these files describe
-   named colleagues, and a git repo is the wrong home for that. If overflow needs
+   when they mean to share it. **Never write a profile of a real person into a
+   git repo without the user's explicit permission.** These files describe named
+   colleagues; a repo is the wrong home for that by default. If overflow needs
    a sibling file (see below), write it alongside as
    `<same-dir>/audience-<slug>/references/<topic>.md`, next to `SKILL.md`.
 5. If a prior or `team-norms` is referenced by name, check it is installed too. If
@@ -308,7 +307,9 @@ or cut it. If this repo is at hand you may offer its with/without eval loop
 An audience skill goes stale because the user's model of the team improves. When
 asked to update one: read the existing file first, ask what changed and what
 turned out wrong, ask Q10 again — examples turn over faster than anything else —
-and **edit in place rather than regenerating**. The user's own edits are the most
+and **edit in place rather than regenerating**. Do not badger: never offer to
+re-interview more than once a day, and only when something suggests the model
+has moved. The user's own edits are the most
 valuable content in the file; anything that does not look like generated text is
 theirs and it survives. Preserve the `name` and the directory. Move settled items
 out of `Open questions`. If the skill has a `references/` sibling, check it too —

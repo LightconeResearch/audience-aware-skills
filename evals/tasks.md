@@ -139,7 +139,8 @@ the premise is in trouble and we should know that on Friday.
 **Role:** cross-cutting (the profile layer, not a register)
 **Skill under test:** none yet — this evaluates a *method*, not a skill
 
-See [`../docs/reader-profiles.md`](../docs/reader-profiles.md). A reader profile
+See [`../skills/audience-definition/SKILL.md`](../skills/audience-definition/SKILL.md).
+A reader profile
 can be built by interview, or reconstructed from history: memory files, past
 sessions, prior artifacts written for that person.
 

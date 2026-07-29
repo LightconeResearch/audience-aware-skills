@@ -161,8 +161,9 @@ they are" degrades into a sentence the agent writes once and then contradicts.
 ## Time budget: two modes
 
 Ask first: **how much time do you have?** The answer changes the form, not just
-the length. See [`docs/reader-profiles.md`](../../docs/reader-profiles.md) — the
-time question is the first one in the profile interview, and a whole good
+the length. See
+[`skills/audience-definition/SKILL.md`](../../skills/audience-definition/SKILL.md) —
+the time question is the first one in the profile interview, and a whole good
 learning prompt has already been killed on time alone.
 
 **Full walk** (twenty minutes or more). Everything above applies. Predict first,

@@ -47,7 +47,7 @@ advisor.
 ## Student
 
 **Reader model.** Knows less about *this specific thing* — the only safe
-assumption; they may know more than you about something adjacent. Does not hold
+assumption; they may know more than the author about something adjacent. Does not hold
 your context, your notation, or the six months of dead ends that made the current
 approach obvious. Absorbs roughly one new concept at a time, anchored to
 something they already hold. They want to **understand**, which is not the same

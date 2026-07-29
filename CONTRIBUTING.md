@@ -27,7 +27,8 @@ place on both axes below, not per-team or per-person.
 1. **Justify the role on two axes, not one.** Knowledge entering (domain
    expertise) and context held (day-to-day project state) are separate. A new
    role needs a distinct position on both, plus a distinct answer to what they
-   are reading *for*. See [`docs/reader-profiles.md`](docs/reader-profiles.md).
+   are reading *for*. See
+   [`skills/audience-definition/assets/priors.md`](skills/audience-definition/assets/priors.md).
    Round 2 example: "collaborator" earned its place once we saw the delta from
    the author is trench time, not knowledge. "Funder" might earn one: knows less
    about the method, reads for whether to keep paying.
