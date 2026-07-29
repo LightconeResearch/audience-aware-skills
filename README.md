@@ -86,6 +86,30 @@ agent acting on someone's behalf asks before the irreversible or the
 consequential — posting, sending, publishing, deleting. This one also lives in
 `skills/team-norms/`.
 
+## Start here: define your own audience
+
+The role skills above are **priors**. Real work happens in a named context — the
+DESI lensing WG where you lead, the Rubin channel where you are one of hundreds,
+the one student you advise. Each of those deserves its own skill.
+
+[`skills/audience-definition/`](skills/audience-definition/SKILL.md) is the
+meta-skill that makes them. It interviews you about one audience — four standard
+questions from the group, plus as much more as your time budget allows — merges
+your answers with the universal best practices in
+[`assets/template.md`](skills/audience-definition/assets/template.md), and hands
+back a small `SKILL.md` you edit and keep. It writes into `~/.claude/skills/` by
+default, so it is live immediately and profiles of real colleagues stay out of
+git. You never write it yourself. You
+re-interview later, when your model of the team has moved.
+
+```
+"create a communication skill for my DESI lensing working group"
+```
+
+The four role skills are what it starts from; the generated skill is a
+specialization of one of them, not a fresh essay. That is what keeps ten of them
+consistent with each other.
+
 ## Where this plugs in
 
 Not only chat. The larger target is **agent-generated science communication
@@ -108,7 +132,11 @@ README.md                        you are here
 CONTRIBUTING.md                  how to add a role, tune a skill, run an eval
 docs/
   reader-profiles.md             roles as priors; the interview that builds a profile
+  sources/learning-prompt.md     pedagogy that student-type skills inherit
 skills/
+  audience-definition/           the meta-skill: interview → generated audience skill
+    SKILL.md                     the interview and how to draft from it
+    assets/template.md           skeleton of a generated skill: constants + slots
   audience-student/SKILL.md      teach; check comprehension before revealing
   audience-collaborator/SKILL.md peer with no trench time; summary first, detail on demand
   audience-advisor/SKILL.md      decision points and big-picture implications

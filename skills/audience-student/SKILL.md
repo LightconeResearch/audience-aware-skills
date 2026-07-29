@@ -180,10 +180,8 @@ No prediction prompts. No scaffolding ladder. No ledger. There is not time to
 build understanding, so aim for a correct working picture plus an honest map of
 its edges. Say which mode you are in, so the reader knows what they are getting.
 
-<!-- TODO: the group intends to import an external learning prompt that handles
-     the scaffolded walk better than what is written here. It exists as a
-     screenshot that is not yet in this repo. Add it, credit its author, and
-     reconcile it with the ledger and the two-mode split above. -->
+See [`docs/sources/learning-prompt.md`](../../docs/sources/learning-prompt.md)
+for the imported scaffolded-walk pedagogy this section draws on.
 
 
 ## Failure modes to watch for
