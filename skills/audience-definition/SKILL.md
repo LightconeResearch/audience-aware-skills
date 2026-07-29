@@ -33,7 +33,9 @@ Here you do both: interview to get the reader, merge with the constants in
 
 ## Priors: the existing role skills
 
-Do not generate from nothing. `skills/` holds four role skills plus norms:
+Do not generate from nothing. The table below is the distilled prior — everything
+this skill needs at generation time. Pick the one or two rows that fit and match
+their register.
 
 | Prior | Reader |
 |---|---|
@@ -43,10 +45,11 @@ Do not generate from nothing. `skills/` holds four role skills plus norms:
 | `audience-prompter` | asked for the work; wants outcome and decisions |
 | `team-norms` | etiquette for shared surfaces: cadence, length, tagging |
 
-Read `README.md` and `docs/reader-profiles.md` for the axes, then read the one or
-two priors that fit. Copy their structure and tone. The generated skill is a
-**specialization of a prior, not a fresh essay** — that is what keeps ten of
-these consistent with each other.
+Read `README.md` and `docs/reader-profiles.md` for the two-axes framing. The
+generated skill is a **specialization of a prior, not a fresh essay** — that is
+what keeps ten of these consistent with each other. (The original v0 drafts
+these rows were distilled from live in `archive/skills/`, for history — not
+needed to run this interview.)
 
 `docs/reader-profiles.md` describes its own "four questions". It predates the
 summit set and its Q3 and Q4 are this skill's optional Q5 and Q6. **Use the four
@@ -201,7 +204,9 @@ prior-derived line in the voice of a user answer.
 
 1. **Reveal your model before you write.** Two or three lines, then "correct me
    if that is wrong." Cheap, and it catches a mis-model before you build on it.
-2. Read `assets/template.md`. Read the chosen prior.
+2. Read `assets/template.md`. The priors table above is sufficient to fill it;
+   read the archived draft at `archive/skills/<the-prior>/SKILL.md` only if you
+   want more texture on tone than the table row gives.
 3. Fill the slots. Constants copy through. **Never write a line in the voice of a
    user answer unless the user said it.** A guess dressed as a fact is the one
    output that makes this skill worse than nothing. Prior-derived content is

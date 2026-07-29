@@ -8,8 +8,9 @@ colleague on the other half of the project. Today most agents write one register
 for everyone: complete, eager, long. That register is wrong for almost every
 reader.
 
-This repo holds v0 skills that make an agent pick a register on purpose, plus a
-way to check whether the skills actually help.
+This repo's product is [`skills/audience-definition/`](skills/audience-definition/SKILL.md):
+a meta-skill that interviews you about one real audience and generates a small,
+editable communication skill for it. Run it, get your skill.
 
 Seeded at the AAI4Science Developer Summit. Issue:
 https://github.com/LightconeResearch/AAI4ScienceDeveloperSummit/issues/12
@@ -51,7 +52,7 @@ on collaborators.
 
 Some norms are close to universal (concision is respect). Some are local (this
 lab wants a daily digest; that one wants nothing until it is done). So
-`skills/team-norms/` is a template plus an intake you fill in for your team.
+`archive/skills/team-norms/` is a template plus an intake you fill in for your team.
 
 ## Regardless of role
 
@@ -84,13 +85,13 @@ scaffolding toward the known answer as its only job.
 humans, who bear the consequences of their own actions. Agents invert it. An
 agent acting on someone's behalf asks before the irreversible or the
 consequential — posting, sending, publishing, deleting. This one also lives in
-`skills/team-norms/`.
+`archive/skills/team-norms/`.
 
-## Start here: define your own audience
+## The product: define your own audience
 
-The role skills above are **priors**. Real work happens in a named context — the
-DESI lensing WG where you lead, the Rubin channel where you are one of hundreds,
-the one student you advise. Each of those deserves its own skill.
+The roles above are **priors**. Real work happens in a named context — the DESI
+lensing WG where you lead, the Rubin channel where you are one of hundreds, the
+one student you advise. Each of those deserves its own skill.
 
 [`skills/audience-definition/`](skills/audience-definition/SKILL.md) is the
 meta-skill that makes them. It interviews you about one audience — four standard
@@ -106,9 +107,9 @@ re-interview later, when your model of the team has moved.
 "create a communication skill for my DESI lensing working group"
 ```
 
-The four role skills are what it starts from; the generated skill is a
-specialization of one of them, not a fresh essay. That is what keeps ten of them
-consistent with each other.
+The v0 role skills in `archive/` are what it starts from; the generated skill is
+a specialization of one of them, not a fresh essay. That is what keeps ten of
+them consistent with each other.
 
 ## Where this plugs in
 
@@ -129,22 +130,21 @@ reader, and today most of them do not name one.
 
 ```
 README.md                        you are here
-CONTRIBUTING.md                  how to add a role, tune a skill, run an eval
-docs/
-  reader-profiles.md             roles as priors; the interview that builds a profile
-  sources/learning-prompt.md     pedagogy that student-type skills inherit
+CONTRIBUTING.md                  how to tune a skill, evolve a prior, run an eval
 skills/
-  audience-definition/           the meta-skill: interview → generated audience skill
+  audience-definition/           THE PRODUCT: interview → generated audience skill
     SKILL.md                     the interview and how to draft from it
     assets/template.md           skeleton of a generated skill: constants + slots
-  audience-student/SKILL.md      teach; check comprehension before revealing
-  audience-collaborator/SKILL.md peer with no trench time; summary first, detail on demand
-  audience-advisor/SKILL.md      decision points and big-picture implications
-  audience-prompter/SKILL.md     outcome first; no ceremony
-  team-norms/SKILL.md            collaboration etiquette + team profile intake
+archive/
+  README.md                      why these are kept, not deleted
+  skills/                        the v0 role skills: student, collaborator, advisor,
+                                  prompter, team-norms — audience-definition's priors
 evals/
   README.md                      with/without protocol and judging rubric
   tasks.md                       concrete eval tasks
+docs/
+  reader-profiles.md             roles as priors; the interview that builds a profile
+  sources/learning-prompt.md     pedagogy that student-type skills inherit
 ```
 
 The architecture, in one sentence:
@@ -174,27 +174,36 @@ Full protocol in [`evals/README.md`](evals/README.md).
 
 ## Quickstart
 
-Clone the repo and point your agent at the skills.
+Clone the repo and point your agent at the generator.
 
 ```bash
 git clone https://github.com/LightconeResearch/audience-aware-skills.git
 cd audience-aware-skills
+mkdir -p ~/.claude/skills
+ln -s "$PWD/skills/audience-definition" ~/.claude/skills/audience-definition
 ```
 
-For Claude Code, symlink or copy a skill into your project:
+Then ask for a skill for a real audience:
+
+```
+"create a communication skill for my DESI lensing working group"
+```
+
+`audience-definition` interviews you — starting with how much time you have —
+and writes a small `SKILL.md` to `~/.claude/skills/audience-<slug>/`, live
+immediately. You edit it and keep it; re-run the interview when your model of
+the audience moves.
+
+If you want a specific v0 role skill directly rather than a generated one —
+useful for eval baselines or quick experiments — they still work, symlinked
+straight from `archive/skills/`:
 
 ```bash
-mkdir -p ~/.claude/skills
-ln -s "$PWD/skills/audience-advisor" ~/.claude/skills/audience-advisor
+ln -s "$PWD/archive/skills/audience-advisor" ~/.claude/skills/audience-advisor
 ```
 
-Then ask for work aimed at a reader: "summarize this PR for my advisor",
-"explain this analysis to a first-year student". The description in each
-`SKILL.md` decides whether the skill fires.
-
-To use the team-norms skill, first fill in the `## Team profile` section with
-your group's answers. The template without a profile is generic. With one it is
-useful.
+To use `team-norms` this way, fill in its `## Team profile` section first. The
+template without a profile is generic. With one it is useful.
 
 ## Friday demo target
 

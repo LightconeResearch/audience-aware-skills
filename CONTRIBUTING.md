@@ -19,6 +19,11 @@ Open a PR. If you are not sure it is right, open it as a draft and say so.
 
 ## Adding a new role
 
+This describes evolving the priors that `audience-definition` generates from —
+`archive/skills/`. Most new audiences don't need a new role; they need an
+interview with `audience-definition`. Add a role only when it earns a distinct
+place on both axes below, not per-team or per-person.
+
 1. **Justify the role on two axes, not one.** Knowledge entering (domain
    expertise) and context held (day-to-day project state) are separate. A new
    role needs a distinct position on both, plus a distinct answer to what they
@@ -27,7 +32,7 @@ Open a PR. If you are not sure it is right, open it as a draft and say so.
    the author is trench time, not knowledge. "Funder" might earn one: knows less
    about the method, reads for whether to keep paying.
 
-2. **Create `skills/audience-<role>/SKILL.md`** with these sections, in order:
+2. **Create `archive/skills/audience-<role>/SKILL.md`** with these sections, in order:
    - frontmatter (`name`, `description` with triggers)
    - `## Reader model` — what they know, what context they hold, what they want,
      what time they have, and **what it costs this reader when the author is
@@ -44,7 +49,9 @@ Open a PR. If you are not sure it is right, open it as a draft and say so.
 
 4. **Add per-role rubric rows to `evals/README.md`.**
 
-5. **Add the role to the table in `README.md`.**
+5. **Add the role to the table in `skills/audience-definition/SKILL.md`'s
+   priors list**, and to the two-axes table in `README.md` if it changes that
+   framing.
 
 6. **Run at least one eval before merging.** An unevaluated role is a guess.
 
@@ -53,7 +60,7 @@ Open a PR. If you are not sure it is right, open it as a draft and say so.
 Do not fork the whole repo.
 
 **For team etiquette**, fill in the `## Team profile` section of
-`skills/team-norms/SKILL.md`. Answer the intake questions for your group. Keep
+`archive/skills/team-norms/SKILL.md`. Answer the intake questions for your group. Keep
 your filled profile in your own copy, or contribute it back as an additional
 example — a second filled profile is genuinely useful, because it shows which
 general norms survive contact with another team.
