@@ -6,12 +6,14 @@ human who will read what the agent writes — a student, a peer, an advisor, the
 person who asked for the work. Each reader deserves a different register.
 
 The product is [`skills/audience-definition/`](skills/audience-definition/SKILL.md).
-It interviews you about one real audience. It then generates a small, editable
-communication skill for that audience. The common roles (student, collaborator,
-advisor, prompter) are **priors**, not boxes: the interview turns a prior into
-a profile of your reader, and the profile sets the register. Where the
-interview contradicts the prior, the interview wins. The skill is
-self-contained — everything it needs is in its directory.
+It interviews you about one real audience. It then writes that audience into
+your **single personal communication skill**: universal preferences once in
+the body, one editable reference file per audience. The agent is always the
+author — the skill governs how it writes to you and to the people it writes
+to on your behalf. The common roles (student, collaborator, advisor,
+prompter) are **priors**, not boxes: the interview turns a prior into a
+profile of your reader, and the profile sets the register. Where the
+interview contradicts the prior, the interview wins.
 
 Seeded at the AAI4Science Developer Summit
 ([issue #12](https://github.com/LightconeResearch/AAI4ScienceDeveloperSummit/issues/12)).

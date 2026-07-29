@@ -1,31 +1,42 @@
 ---
 name: audience-definition
-description: Interview a scientist about one audience and generate a durable, editable communication skill for it. Use whenever someone is defining a new audience, joining a new collaboration, taking on a new role, or says "create a communication skill for X", "make a skill for writing to my advisor", "define a skill for how the agent writes for the DESI working group", "set up a reader profile for my student", "define my audience", "write a communication skill for this team". Also use to re-interview and update an audience skill that already exists, or to build a profile of the user themselves as a reader.
+description: Interview a scientist about one audience and add a register for it to their personal communication skill — creating that skill if it does not exist yet. Use whenever someone is defining a new audience, joining a new collaboration, taking on a new role, or says "create a communication skill for X", "define how the agent writes for the DESI working group", "add my advisor as an audience", "set up a reader profile for my student", "define my audience", "set up how you talk to me". Also use to re-interview and update an audience already on file.
 ---
 
 # Audience definition
 
-Your role: understand how the user wants to communicate and who the audience
-is, combine that understanding with general best practices, and produce a new
-communication skill for that audience. **The user wants a draft they can edit.
-They never want to write it themselves.** Ask few questions, ask them well,
-generate something opinionated and concrete, and be explicit about what you
-guessed.
+Your role: understand who the agent will be writing to and how the user
+wants that communication to go, combine that understanding with general best
+practices, and turn it into a durable register. **The author is always the
+agent.** The user is always the interviewee. The reader is a human: the user
+themselves, or someone the agent writes to on the user's behalf — an
+advisor, a working group, a student.
+
+The product is the user's **single communication skill**. Its body carries
+what is universal to the user — sign-off, voice, approval rules, the
+constant principles — plus an index of audiences. Each audience is one
+reference file beside it. One interview creates the skill; every later
+interview adds one audience file. Ten audiences, one skill, nothing
+duplicated.
+
+**The user wants a draft they can edit. They never want to write it
+themselves.** Ask few questions, ask them well, generate something
+opinionated and concrete, and be explicit about what you guessed.
 
 This skill is self-contained. The reader-role priors are in
-[`references/priors.md`](references/priors.md); the skeleton and constant
-blocks are in [`assets/template.md`](assets/template.md). Nothing outside this
-directory is load-bearing.
+[`references/priors.md`](references/priors.md); the two skeletons are in
+[`assets/body-template.md`](assets/body-template.md) and
+[`assets/audience-template.md`](assets/audience-template.md). Nothing
+outside this directory is load-bearing.
 
 The steps, in order:
 
-1. **Read the priors** — orient in the space of common roles before asking
-   anything.
+1. **Read the priors — and the user's existing skill, if there is one.**
 2. **Interview** — sized by the user's time budget.
 3. **Synthesize a profile and repeat it back** — iterate until the user
    recognizes it.
-4. **Ask where the skill should live.**
-5. **Generate** — turn profile + template into a full skill, holistically.
+4. **Ask where the skill lives** (first interview only).
+5. **Generate** — create the skill, or add one audience file to it.
 6. **Hand over.**
 
 ## 1. Read the priors
@@ -40,35 +51,39 @@ gives the two axes (knowledge entering vs. context held) used to place a
 
 Priors are non-exhaustive, non-exclusive, and no reader fits one perfectly.
 They inform the interview: they tell you what to listen for and which
-follow-up matters. The generated skill is a **specialization of a prior, not
+follow-up matters. Each audience file is a **specialization of a prior, not
 a fresh essay** — that is what keeps ten of them consistent with each other.
 Where the interview contradicts the prior, the interview wins.
 
+Then look for the user's existing communication skill (ask, or check the
+usual homes). If it exists, read it: the universal preferences are already
+on file and are not re-asked; the new interview only has to cover what is
+specific to this audience.
+
 ## 2. Interview
 
-**Q1 — who is this for. Ask it first.** Two different products wear the same
-clothes:
+**Q1 — who will the agent be writing to. Ask it first.**
 
-> **Is this for how the agent communicates with you — the register you want
-> in your own chat — or for external communication, aimed at someone who is
-> not you?**
+> **Is this about how the agent communicates with you — the register you
+> want in your own chat — or about the agent writing to someone else on
+> your behalf?**
 
-- **User-facing.** The reader is the user themselves. This register applies
-  to *every message the agent sends them*, so the natural home is the global
-  `CLAUDE.md` / `AGENTS.md` rather than a skill that must trigger (offer
-  both in step 4). The answers are first-hand and reliable; use their words.
-  If what they want is to *learn* — not just be talked to well — combine the
-  interview with [`references/learning-prompt.md`](references/learning-prompt.md),
-  the strongest known student-register prompt; its moves are time-gated.
-- **External.** The reader is someone else, and the interview is usually
-  second-hand: the verbatim questions ask about the *interviewee*, but the
-  skill is about the *reader*. Ask the reader-facing versions too — what the
-  reader is to the author, how long the reader gives one artifact, what the
-  *reader* found hard to parse. The author's answers size the interview;
-  they do not fill the reader model. If a reader-facing answer is
-  unavailable, leave that slot unknown and say so. The generated skill
-  states whose model it is and marks the guesses; suggest the cheap fix of
-  sending the standard questions to the actual reader.
+- **The user themselves.** First-hand and reliable; use their words. This
+  register applies to *every message the agent sends them*, so its natural
+  home is the global `CLAUDE.md` / `AGENTS.md` rather than a file that must
+  trigger (offer both in step 4). If what they want is to *learn* — not
+  just be talked to well — combine the interview with
+  [`references/learning-prompt.md`](references/learning-prompt.md), the
+  strongest known student-register prompt; its moves are time-gated.
+- **Someone else.** The interview is second-hand: the verbatim questions ask
+  about the *user*, but the file is about the *reader*. Ask the
+  reader-facing versions too — what the reader is to the user, how long the
+  reader gives one artifact, what the *reader* finds hard to parse. The
+  user's own answers size the interview; they do not fill the reader model.
+  If a reader-facing answer is unavailable, leave that slot unknown and say
+  so. The audience file states whose model it is and marks the guesses;
+  suggest the cheap fix of sending the standard questions to the actual
+  reader.
 
 Then four standard questions, Q2–Q5. Ask them verbatim; do not paraphrase
 them into your own voice. Ask in small batches — two or three per turn, not
@@ -109,7 +124,7 @@ Optional follow-ups, skipped freely under a tight budget:
 - **Q8 — cost of being wrong.** Can this reader push back in a sentence, or do
   they absorb the error and build on it? Sets the uncertainty rule.
 - **Q9 — artifacts and local norms.** Two or three surfaces that actually
-  occur; only what differs from general etiquette.
+  occur; only what differs from the universal preferences already on file.
 - **Q10 — one norm an outsider would get wrong**, and one thing that has
   annoyed people here.
 - **Q11 — real examples.** One thing that landed, one that did not. Two real
@@ -121,7 +136,7 @@ Optional follow-ups, skipped freely under a tight budget:
 - **Fifteen** — add Q5 and Q6–Q9.
 - **An hour or more** — add Q10 and Q11, and walk the draft line by line.
 
-Say which mode you are in: a short interview makes a thinner skill, and the
+Say which mode you are in: a short interview makes a thinner file, and the
 user should know that is what they are buying.
 
 ## 3. Synthesize the profile, repeat it back
@@ -130,55 +145,61 @@ Pause before writing anything. Collect what you heard into a short profile:
 which prior is nearest, where this reader departs from it, the register that
 follows. Mapping notes:
 
-- Q3 asks what the **interviewee** is; priors are named for what the
-  **reader** is. First-hand, map straight through. Second-hand, ask what the
-  audience is *to the author* and map that — a WG lead writing to their WG
-  lands on student or collaborator, never advisor.
+- Q3 asks what the **user** is; priors are named for what the **reader** is.
+  When the reader is the user, map straight through. When the reader is
+  someone else, ask what that audience is *to the user* and map that — for a
+  WG lead's working group, the reader lands on student or collaborator,
+  never advisor.
 - **Plural audiences:** name the nearest prior for the *typical* reader, call
   it approximate, add one line on who else is in the room. Do not stack
   priors.
-- **Time is two quantities.** The Q2 answer is the interviewee's afternoon;
-  the reader's `Time:` slot is how long that audience gives one artifact.
-  First-hand they are close; second-hand they are unrelated — ask, or leave
-  the slot out.
+- **Time is two quantities.** The Q2 answer is the user's afternoon; the
+  reader's `Time:` slot is how long that audience gives one artifact. When
+  the reader is the user they are close; otherwise they are unrelated — ask,
+  or leave the slot out.
 
-Then repeat the profile back in two or three lines — "writing for: a peer, no
-context on my last week, ten minutes, wants to decide whether to rerun their
-half; correct me if that is wrong" — and iterate until the user recognizes
-it. This is cheap and it catches a mis-model before anything is built on it.
+Then repeat the profile back in two or three lines — "writing for: a peer,
+no context on your last week, ten minutes, wants to decide whether to rerun
+their half; correct me if that is wrong" — and iterate until the user
+recognizes it. This is cheap and it catches a mis-model before anything is
+built on it.
 
-## 4. Ask where the skill lives
+## 4. Ask where the skill lives (first interview only)
 
-Always ask; do not assume. Two decisions, both the user's:
+If the communication skill already exists, its location is settled — skip
+this. Otherwise ask; do not assume:
 
-**Location.** Global (`~/.claude/skills/`, live everywhere immediately), the
-project's `.claude/skills/` (audience is project-bound), or a shared repo.
-A **user-facing** register (Q1) applies to every message, so offer the global
-`CLAUDE.md` / `AGENTS.md` as its home instead of a skill that must trigger.
-Profiles describe real, named colleagues — **never write one into a git repo
-without the user's explicit permission.**
+- **Global** (`~/.claude/skills/communication/`) — live everywhere
+  immediately. The usual answer.
+- **Project** (`.claude/skills/communication/`) — when the user's
+  communication life is genuinely project-bound.
+- A **user-facing** register (Q1) applies to every message, so offer the
+  global `CLAUDE.md` / `AGENTS.md` as its home instead of, or alongside, the
+  skill.
 
-**Layout.** Two shapes, user's choice:
-
-- **One skill per audience** — `audience-<slug>/SKILL.md` each. Simple,
-  independent.
-- **One personal communication skill** — common principles and personal
-  constants (sign-offs, voice) in the body, one reference file per audience
-  (`references/desi.md`, `references/advisor.md`). Fewer skills, no
-  duplication of the shared parts. If the user already has such a skill, add
-  a reference file to it instead of creating a new skill.
-
-Keep whichever shape they pick minimal.
+Audience files describe real, named colleagues — **never write one into a
+shared git repo without the user's explicit permission.**
 
 ## 5. Generate
 
-Read [`assets/template.md`](assets/template.md) and the chosen prior, then
-write the skill from your **holistic understanding of the profile** — the
-person communicating, their role, and who the audience is. This is not a
-mechanical mapping of answers onto template slots; the template is a
-skeleton, and the profile is what animates it. Constants copy through.
-Reference files beside the generated skill are allowed when the user wants
-them, not required.
+What you write depends on what exists:
+
+- **No communication skill yet** — create it from
+  [`assets/body-template.md`](assets/body-template.md): universal
+  preferences from the interview, the constant blocks verbatim, an index
+  with one row. Then the first audience file.
+- **Skill exists** — add one audience file, one index row, and append this
+  audience's trigger phrases to the frontmatter description. Touch nothing
+  else: the user's own edits are the most valuable content in the file.
+- **Audience already on file** — this is a re-interview; see below.
+
+Write each audience file from
+[`assets/audience-template.md`](assets/audience-template.md) and the chosen
+prior, out of your **holistic understanding of the profile** — the user,
+their role, and who the reader is. This is not a mechanical mapping of
+answers onto template slots; the template is a skeleton, and the profile is
+what animates it. Universal content goes in the body, once; audience content
+in the audience file; nothing in both.
 
 Rules:
 
@@ -187,22 +208,21 @@ Rules:
   worse than nothing. Prior-derived content is legitimate **if labelled**:
   mark such blocks `<!-- from prior: audience-X, not confirmed -->`, leave
   unasked sections as `<!-- unasked: … -->`, and say so plainly in the
-  generated skill's `## Confidence in this model` block. Delete that block
+  audience file's `## Confidence in this model` section. Delete that section
   only when the model is first-hand and complete.
 - If the reader is student-shaped, apply the pedagogy moves and their time
   gates from the Student section of `references/priors.md` — gated by the
   **reader's** budget, not the interview's.
-- If the generated skill references `team-norms` by name, inline the
-  load-bearing lines — a norms section that points at an absent skill has no
-  norms section.
+- Anything a prior or `team-norms` contributes gets inlined — the generated
+  files never point back at this repo.
 
-Craft rules for the generated file: all triggering lives in the frontmatter
-description (name the audience, the artifacts, the phrases the user will
-type; lean slightly pushy — agents undertrigger). Body under ~150 lines, read
-in full every time it fires. Imperative voice. Explain why instead of
-stacking MUSTs. Do not overfit to one anecdote — generalize the move, keep
-the example as illustration. Name it plainly (`audience-desi-lensing-wg`).
-Reread it cold and cut.
+Craft rules: the skill's description routes every audience, so keep each
+clause concrete — the collaboration, the surfaces, the phrases the user
+types (lean slightly pushy; agents undertrigger). Body short, audience files
+under ~120 lines — each is read in full when it fires. Imperative voice.
+Explain why instead of stacking MUSTs. Do not overfit to one anecdote —
+generalize the move, keep the example as illustration. Reread it cold and
+cut.
 
 ## 6. Hand over
 
@@ -221,13 +241,13 @@ question or cut it.
 
 ## Re-interviewing
 
-An audience skill goes stale because the user's model of the team improves.
-When updating: read the existing file first, ask what changed and what turned
-out wrong, re-ask Q11 (examples turn over fastest), and **edit in place
-rather than regenerating** — the user's own edits are the most valuable
-content in the file and they survive. Preserve the `name` and directory.
-Check any reference files too. Do not badger: never offer to re-interview
-more than once a day, and only when something suggests the model has moved.
+An audience file goes stale because the user's model of the team improves.
+When updating: read the existing file first, ask what changed and what
+turned out wrong, re-ask Q11 (examples turn over fastest), and **edit in
+place rather than regenerating** — the user's own edits survive. Update the
+index row and description clause if the register changed. Do not badger:
+never offer to re-interview more than once a day, and only when something
+suggests the model has moved.
 
 ## Failure modes
 
@@ -235,10 +255,13 @@ more than once a day, and only when something suggests the model has moved.
 - **Generic output.** If it would fit any team, you did not use the
   interview. Their project nouns should appear in it.
 - **Guessing to fill the template.** Empty is honest; invented is not.
-- **Ignoring the prior.** Ten unrelated skills instead of ten
+- **Ignoring the prior.** Ten unrelated registers instead of ten
   specializations.
-- **Treating a second-hand model as first-hand** — sharpest form: mapping the
-  author's own role and generating an advisor register for people they
+- **Duplicating the universal.** A sign-off or a constant block repeated
+  into an audience file will drift from the body's copy. One place per
+  fact.
+- **Modelling the user instead of the reader.** Sharpest form: mapping the
+  user's own role and generating an advisor register for people they
   advise.
 - **Importing the interview budget into the reader model.** Their two spare
   minutes are not their working group's reading habit.
