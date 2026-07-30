@@ -28,6 +28,29 @@ claude plugin marketplace add LightconeResearch/audience-aware-skills
 claude plugin install audience-aware-skills@lightcone
 ```
 
+**Scoping the install** (Claude Code): by default the marketplace lands
+user-wide. Two useful variations:
+
+```bash
+# Only in one project — run from the project directory:
+claude plugin marketplace add LightconeResearch/audience-aware-skills --scope project
+
+# Pin a branch (e.g. to trial a PR before it merges):
+claude plugin marketplace add LightconeResearch/audience-aware-skills@my-branch
+
+# Or point at a local checkout — reads the working tree as-is,
+# tightest loop for iterating on the skill:
+claude plugin marketplace add /path/to/audience-aware-skills
+```
+
+`--scope project` writes the marketplace into the project's
+`.claude/settings.json` (shared with the team; use `--scope local` for a
+personal, gitignored `.claude/settings.local.json`), so the plugin fires
+only inside that project. Project scope matters here: a communication
+skill generated for one collaboration can stay in that collaboration —
+project skills layer on top of a global one and override it where they
+meet.
+
 **Codex**:
 
 ```bash

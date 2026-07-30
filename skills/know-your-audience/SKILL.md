@@ -32,12 +32,11 @@ outside this directory is load-bearing.
 The steps, in order:
 
 1. **Read the priors — and the user's existing skill, if there is one.**
-2. **Interview** — sized by the user's time budget.
+2. **Interview** — opening with scope and audience, paced by the user.
 3. **Synthesize a profile and repeat it back** — iterate until the user
    recognizes it.
-4. **Ask where the skill lives** (first interview only).
-5. **Generate** — create the skill, or add one audience file to it.
-6. **Hand over.**
+4. **Generate** — create the skill, or add one audience file to it.
+5. **Hand over.**
 
 ## 1. Read the priors
 
@@ -62,21 +61,47 @@ specific to this audience.
 
 ## 2. Interview
 
-Two questions always come first, then the track splits on the first answer.
-Ask in small batches — two or three per turn, not a form. Reflect back what
-you heard. Stop early when you have enough.
+Two questions always come first, then the track splits on the second
+answer. Ask in small batches — two or three per turn, not a form. Reflect
+back what you heard. Stop early when you have enough.
 
-**Q1 — who will the agent be writing to. Ask it first.**
+**How to ask.** When a multiple-choice tool is available (Claude Code's
+`AskUserQuestion`), use it for every enumerable question — options plus an
+"other" escape beat a prose list the user must re-type from. Story-shaped
+questions (incidents, examples) stay in prose; they need room, not
+options. And the interview must not itself commit the failure it exists to
+fix: define any term of art inside a question at first use, or use plain
+phrasing — ask "how do you want the information structured, and in what
+format?", not "what shape do you want?".
+
+**Pacing.** Open by saying the questions run in decreasing importance and
+the user can pause, skip, or stop at any point; then read the pacing from
+their answers. Short answers, skipped questions, "let's move on" — stop
+and synthesize. A short interview makes a thinner file with more marked
+guesses; say so when you stop early, so the user knows that is what they
+are buying.
+
+**Q1 — scope. Ask it first.**
+
+> **Is this for the project we're in right now, or for all your
+> communication, globally?**
+
+The answer does two jobs. It settles where the skill lives (see the
+location rules in step 4's note below — global `~/.claude/skills/
+communication/` vs. project `.claude/skills/communication/`; the two
+layer, project sharpening global). And either way, pause before asking
+anything else and reflect on what you already know about the user — their
+CLAUDE.md, memory, how they have worked with you — plus, when the answer
+is *this project*, the project's context: CLAUDE.md, README, the recent
+work. Every later question gets sharper when you hold who the user is and
+what the work is about, and the audience file can use the real nouns.
+
+**Q2 — who will the agent be writing to, and in what context.**
 
 > **Is this about how the agent communicates with you — the register you
-> want in your own chat — or about the agent writing for a general defined
-> audience on your behalf?** 
-
-**Q2 — time budget. Ask it alone, before the rest.** It sizes the interview
-itself.
-
-> **How long do you have right now? Two minutes / fifteen / an hour / as long
-> as it takes**
+> want in your own chat — or about the agent writing for a defined
+> audience on your behalf? Who is the reader, what is their role, and
+> what is the context of the work?**
 
 ### Track A — the reader is the user
 
@@ -96,14 +121,14 @@ Two questions, verbatim — do not paraphrase them into your own voice:
 > explanation of the topic, or a question that gets you there?**
 
 **A2 — parsing failure** (the richest question — push for a specific
-incident, **except at two minutes, where you skip it entirely**):
+incident, **unless the user is signalling haste, in which case skip it**):
 
 > **Tell me about the last time AI-assisted work was difficult to parse. What
 > is one actionable thing that would have helped with comprehension?**
 
-If the interviewee isn't time constrained, also ask questions from Track B where 
-the audience is the interviewee. Use judgement to guide the conversation. In both
-tracks, you don't **have** to ask every question.
+If the interviewee is settling in rather than rushing, also ask questions
+from Track B where the audience is the interviewee. Use judgement to guide
+the conversation. In both tracks, you don't **have** to ask every question.
 
 ### Track B — the agent writes to someone else
 
@@ -169,19 +194,14 @@ annoyed people here.
 **B8 — real examples.** One thing written for this audience that landed, one
 that did not. Two real samples beat twenty adjectives.
 
-Under a fifteen-minute-plus budget, also ask the Track A questions in
+When the user is settled in, also ask the Track A questions in
 reader-facing form: what does this *reader* want at a gap; when did this
 *reader* find agent output hard to parse.
 
-The list runs in decreasing importance — go down it as far as the budget and
-the user's patience allow, and stop the moment they want to stop:
-
-- **Two minutes** — A: A1 only; B: B1 and B2.
-- **Fifteen** — the full track.
-- **An hour or more** — everything, and walk the draft line by line.
-
-Say which mode you are in: a short interview makes a thinner file, and the
-user should know that is what they are buying.
+The list runs in decreasing importance — go down it as far as the user's
+patience allows, and stop the moment they want to stop. At the hastiest,
+B1 and B2 alone make a usable (thin) file; when the user lingers, walk
+the draft line by line at the end.
 
 ## 3. Synthesize the profile, repeat it back
 
@@ -198,10 +218,10 @@ follows. Mapping notes:
 - **Plural audiences:** name the nearest prior for the *typical* reader, call
   it approximate, add one line on who else is in the room. Do not stack
   priors.
-- **Time is two quantities.** The Q2 answer is the user's afternoon; the
-  reader's `Time:` slot is how long that audience gives one artifact. When
-  the reader is the user they are close; otherwise they are unrelated — ask,
-  or leave the slot out.
+- **The reader's `Time:` slot is how long that audience gives one
+  artifact** — nothing to do with how patient the user was in the
+  interview. When the reader is the user they are close; otherwise ask, or
+  leave the slot out.
 
 Then repeat the profile back in two or three lines — "writing for: a peer,
 no context on your last week, ten minutes, wants to decide whether to rerun
@@ -209,23 +229,23 @@ their half; correct me if that is wrong" — and iterate until the user
 recognizes it. This is cheap and it catches a mis-model before anything is
 built on it.
 
-## 4. Ask where the skill lives (first interview only)
+## 4. Generate
 
-If the communication skill already exists, its location is settled — skip
-this. Otherwise ask; do not assume:
+**Where the skill lives** falls out of the Q1 scope answer — confirm it,
+don't re-ask:
 
 - **Global** (`~/.claude/skills/communication/`) — live everywhere
   immediately. The usual answer.
-- **Project** (`.claude/skills/communication/`) — when the user's
-  communication life is genuinely project-bound.
-- A **user-facing** register (Q1) applies to every message, so offer the
-  global `CLAUDE.md` / `AGENTS.md` as its home instead of, or alongside, the
-  skill.
+- **Project** (`.claude/skills/communication/`) — when the scope answer
+  was *this project*. The two layer: the project skill sharpens and
+  overrides the global one where they meet.
+- A **user-facing** register (Q2) applies to every message, so offer the
+  global `CLAUDE.md` / `AGENTS.md` as its home instead of, or alongside,
+  the skill.
 
+If the communication skill already exists, its location is settled.
 Audience files describe real, named colleagues — **never write one into a
 shared git repo without the user's explicit permission.**
-
-## 5. Generate
 
 What you write depends on what exists:
 
@@ -256,7 +276,7 @@ Rules:
   interview answer; filled from the prior and **marked** `<!-- from prior:
   audience-X, not confirmed -->`; or replaced by a one-line
   `<!-- unasked: … -->` comment so the re-interview picks it up. Under a
-  short budget most slots are the second and third kind — that is fine;
+  short interview most slots are the second and third kind — that is fine;
   unmarked is what is not. Say so plainly in the audience file's
   `## Confidence in this model` section.
 - **Every line is traceable to the user or to a named prior** — if you can
@@ -279,7 +299,7 @@ types (lean slightly pushy; agents undertrigger). Body short, audience files
 under ~120 lines — each is read in full when it fires. Imperative voice.
 Explain why instead of stacking MUSTs. Do not overfit to one anecdote. 
 
-## 6. Hand over
+## 5. Hand over
 
 Five things, no ceremony:
 
@@ -297,14 +317,15 @@ question or cut it.
 
 ## Failure modes
 
-- **Interrogation.** Twelve questions to a person who said two minutes.
+- **Interrogation.** Twelve questions to a person whose answers have been
+  getting shorter for three turns.
 - **Generic output.** It may fit any number of teams, but specificity 
   should be used when appropriate. A team's project nouns can appear.
 - **Guessing to fill the template.** Empty is honest; invented is not.
 - **Ignoring the prior.** Ten unrelated registers instead of ten
   specializations.
-- **Importing the time budget into the reader model.** Their two spare
-  minutes are not their working group's reading habit.
+- **Importing the user's patience into the reader model.** A hurried
+  interview is not evidence about the working group's reading habit.
 - **Handing back an essay.** They asked for a file, not a lecture about it.
 - **Slop.** No "Great question!", no "comprehensive framework", no bullets
   restating their own headings.
