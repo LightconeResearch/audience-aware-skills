@@ -74,13 +74,12 @@ fix: define any term of art inside a question at first use, or use plain
 phrasing — ask "how do you want the information structured, and in what
 format?", not "what shape do you want?".
 
-**Pacing.** Do not ask for a time budget — a model cannot feel elapsed
-time, and the number is unusable anyway. Instead, open by saying the
-questions run in decreasing importance and the user can pause, skip, or
-stop at any point; then read the pacing from their answers. Short answers,
-skipped questions, "let's move on" — stop and synthesize. A short
-interview makes a thinner file with more marked guesses; say so when you
-stop early, so the user knows that is what they are buying.
+**Pacing.** Open by saying the questions run in decreasing importance and
+the user can pause, skip, or stop at any point; then read the pacing from
+their answers. Short answers, skipped questions, "let's move on" — stop
+and synthesize. A short interview makes a thinner file with more marked
+guesses; say so when you stop early, so the user knows that is what they
+are buying.
 
 **Q1 — scope. Ask it first.**
 
@@ -90,11 +89,12 @@ stop early, so the user knows that is what they are buying.
 The answer does two jobs. It settles where the skill lives (see the
 location rules in step 4's note below — global `~/.claude/skills/
 communication/` vs. project `.claude/skills/communication/`; the two
-layer, project sharpening global). And if the answer is *this project*,
-pause and read the project's context — CLAUDE.md, README, the recent work
-— before asking anything else: every later question gets sharper when you
-know what the project is about, and the audience file can use the
-project's real nouns.
+layer, project sharpening global). And either way, pause before asking
+anything else and reflect on what you already know about the user — their
+CLAUDE.md, memory, how they have worked with you — plus, when the answer
+is *this project*, the project's context: CLAUDE.md, README, the recent
+work. Every later question gets sharper when you hold who the user is and
+what the work is about, and the audience file can use the real nouns.
 
 **Q2 — who will the agent be writing to, and in what context.**
 
