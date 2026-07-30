@@ -21,23 +21,23 @@ Everything here is a draft. Tear it apart.
 
 ## Install
 
-**Claude Code** (as a plugin):
+**Claude Code**:
 
-```
-/plugin marketplace add LightconeResearch/audience-aware-skills
-/plugin install audience-aware-skills@lightcone
-```
-
-**Codex**: skills are discovered from `.agents/skills/`, which this repo
-provides — clone it and work from inside it, or copy the skill globally:
-
-```
-cp -r skills/know-your-audience ~/.agents/skills/
+```bash
+claude plugin marketplace add LightconeResearch/audience-aware-skills
+claude plugin install audience-aware-skills@lightcone
 ```
 
-**Manual** (any agent that reads `~/.claude/skills/`):
+**Codex**:
 
+```bash
+codex plugin marketplace add LightconeResearch/audience-aware-skills
+codex plugin add audience-aware-skills@lightcone
 ```
+
+**Manual** (any agent that reads an Agent Skills directory):
+
+```bash
 cp -r skills/know-your-audience ~/.claude/skills/
 ```
 
@@ -45,6 +45,9 @@ cp -r skills/know-your-audience ~/.claude/skills/
 
 ```
 skills/know-your-audience/   The product: interview → generated audience skill.
+.agents/plugins/             Codex marketplace manifest.
+.claude-plugin/              Claude Code marketplace and plugin manifests.
+.codex-plugin/               Codex plugin manifest.
 evals/                        With/without-skill comparison protocol and tasks.
 archive/skills/               v0 per-role skills — the priors' provenance.
 CONTRIBUTING.md               How to tune a skill, evolve a prior, run an eval.
