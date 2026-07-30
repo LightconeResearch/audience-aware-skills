@@ -156,27 +156,25 @@ claim and the guess must not sound the same), a smaller claim surface, and
 receipts — the link, the plot, the command that reproduces the number — so
 the reader can *check* what they cannot challenge from expertise.
 
+**B6 — what should they be able to do afterward?** The point of the
+communication, in the user's words: "decide whether to fund it", "reproduce
+it next month", "not be lost in the group meeting".
+
+**B7 — one norm an outsider would get wrong**, and one thing that has
+annoyed people here.
+
+**B8 — real examples.** One thing written for this audience that landed, one
+that did not. Two real samples beat twenty adjectives.
+
 Under a fifteen-minute-plus budget, also ask the Track A questions in
 reader-facing form: what does this *reader* want at a gap; when did this
 *reader* find agent output hard to parse.
 
-### Optional follow-ups, either track
+The list runs in decreasing importance — go down it as far as the budget and
+the user's patience allow, and stop the moment they want to stop:
 
-Skipped freely under a tight budget:
-
-- **What should they be able to do afterward?** The point of the
-  communication, in the user's words: "decide whether to fund it",
-  "reproduce it next month", "not be lost in the group meeting".
-- **One norm an outsider would get wrong**, and one thing that has annoyed
-  people here.
-- **Real examples.** One thing written for this audience that landed, one
-  that did not. Two real samples beat twenty adjectives.
-
-**The time answer binds the interview:**
-
-- **Two minutes** — the core track questions only (A: A1, skip A2; B: B1 and
-  B2, skip B3–B5).
-- **Fifteen** — the full track, plus the follow-ups that earn their place.
+- **Two minutes** — A: A1 only; B: B1 and B2.
+- **Fifteen** — the full track.
 - **An hour or more** — everything, and walk the draft line by line.
 
 Say which mode you are in: a short interview makes a thinner file, and the
