@@ -1,31 +1,3 @@
-# Body template — the user's communication skill
-
-This is the skeleton of the **one** communication skill a user owns. Its body
-carries what is universal to this user; each audience lives in a reference
-file beside it (see `audience-template.md`). Create it once, on the first
-interview; every later interview adds a reference file and an index row, and
-extends the frontmatter description.
-
-Rules for filling it in:
-
-- **Every line is traceable to the user or to a constant block.** If you
-  cannot point at either, cut it.
-- **Prefer the user's own words.** "I want the punchline first and I'll ask
-  for the rest" goes in as written. It survives edits that a paraphrase
-  would not.
-- **The constant blocks are load-bearing.** `Regardless of audience` and
-  `Sentence discipline` copy through verbatim. They live here — once — and
-  never in the audience files. If the user contradicts one, that is a
-  finding: say it out loud rather than editing the constant quietly.
-- **Keep the body short.** It is read in full every time the skill fires,
-  before any reference file. Universal preferences and the index; depth
-  belongs in the audience files.
-
-Drop the fence below into `SKILL.md` in the new skill directory.
-
----
-
-```markdown
 ---
 name: communication
 description: How {{ user }}'s agent communicates with humans — universal
@@ -106,4 +78,3 @@ Technical English ([ASD-STE100](https://www.asd-ste100.org)):
 
 The constraint is on structure, not personality. A dry aside still lands.
 Relax it for conversation, where a natural register serves better.
-```

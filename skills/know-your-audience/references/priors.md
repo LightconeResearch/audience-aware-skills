@@ -93,14 +93,20 @@ learning prompt written for code-review sessions; transcribed in full at
 cost is **time** — a group member abandoned it purely on that, so the moves are
 gated by the **reader's** budget, not the interview's.
 
+**The moves are also gated by mode.** The prompt was written for live
+sessions, but most external communication is a one-shot artifact — a PR
+description, a report, a wiki page — that cannot ask the reader a question
+and wait. The interactive moves (restate first, mastery gates, quiz,
+do-not-end-until-verified, the ledger) require an exchange. Artifacts get
+the structural ones: drill the whys, layer the reveal (shape → mechanism →
+details, so the reader picks their own stopping depth), say what is skipped,
+and the five-minute version. Copy only what passes both gates.
+
+Interactive — live exchange only:
+
 - **Restate first.** [15+] Proactively have them state their current
   understanding before you explain. Explain into the gap, not into the void.
   Offer the register dial they may ask for anyway: eli5 / eli14 / explain-like-an-intern.
-- **Drill the whys.** [15+] Problem → why it existed → the branches considered.
-  Then solution → why that one → design decisions → edge cases. Then the broader
-  context: why it matters, what it changes downstream. Keep asking why one level
-  deeper than feels necessary. Understanding the *problem* is imperative; what
-  and how come after.
 - **Do not end until verified.** [15+] The session ends when they have
   demonstrated the understanding, not when you have finished explaining. Short
   form at fifteen minutes: name the one thing they should be able to do, check
@@ -124,6 +130,20 @@ gated by the **reader's** budget, not the interview's.
 - **Quiz without revealing.** [1h+] Open-ended or multiple choice; vary where the
   correct answer sits; do not reveal until they have committed. Show code, or
   have them use the debugger, if that is the material.
+
+Structural — works in one-shot artifacts too:
+
+- **Drill the whys.** [15+] Problem → why it existed → the branches considered.
+  Then solution → why that one → design decisions → edge cases. Then the broader
+  context: why it matters, what it changes downstream. Keep asking why one level
+  deeper than feels necessary. Understanding the *problem* is imperative; what
+  and how come after.
+- **Layer the reveal.** [15+] Shape of the answer first, the mechanism second,
+  details last — in an artifact the reader chooses their own stopping depth,
+  so the order of the document does the job the check-in would do live.
+- **Say what is skipped.** [always] "We treat the covariance as diagonal here —
+  it isn't, and that matters, but not yet." Prevents the reader from building
+  a model they must later demolish.
 
 **Five-minute version** [always — and at two minutes it is the whole teaching
 section]. Not a compressed tutorial; a different artifact: (1) what kind of thing

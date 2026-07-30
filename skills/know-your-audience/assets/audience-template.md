@@ -1,33 +1,3 @@
-# Audience template — one reference file per audience
-
-This is the skeleton of a per-audience reference file, written to
-`references/<slug>.md` inside the user's communication skill (see
-`body-template.md`). It carries everything specific to one audience and
-nothing universal — the constant blocks live in the body, once.
-
-Everything in `{{ }}` is a **slot** the interview fills. Rules:
-
-- **Do not leave a slot half-filled.** "The reader probably wants…" is worse
-  than no section. Each slot has three honest states: filled from an
-  interview answer; filled from the prior and **marked** `<!-- from prior:
-  audience-X, not confirmed -->`; or replaced by a one-line
-  `<!-- unasked: … -->` comment so the re-interview picks it up. Under a
-  short budget most slots are the second and third kind. That is fine;
-  unmarked is what is not.
-- **Every rule is traceable to the user or to a named prior.** If you cannot
-  point at either, cut the line.
-- **Prefer the user's own words.** They survive edits that a paraphrase
-  would not.
-- **Keep it under ~120 lines.** It is read in full whenever this audience is
-  written for. Cut in this order: `Failure modes` down to three; `Artifacts
-  and local norms` down to the fields that differ from the universal norms;
-  `Register rules` down to four; the second `Do / don't` pair.
-- **Write in the second person to the agent**, not about the reader in the
-  abstract.
-
----
-
-```markdown
 # Audience: {{ human-readable name of this audience and context }}
 
 **v0 draft, generated {{ date }} from an interview with {{ user }}. Edit
@@ -37,6 +7,11 @@ Prior: `{{ audience-student | audience-collaborator | audience-advisor |
 audience-prompter — the one that fits the READER's position relative to the
 user; for a plural audience name the nearest one and say "approximate" }}`.
 This file overrides the prior where the two disagree.
+
+**Mode:** {{ one-shot artifacts (PRs, reports, posts — the common case for
+external audiences), live exchange (chat, meetings), or both. It changes
+which register rules make sense: an artifact cannot ask the reader a
+question and wait. }}
 
 ## Reader model
 
@@ -68,9 +43,8 @@ assume. Delete this section only when the model is first-hand and complete. }}
 ## Register rules
 
 {{ FOUR TO EIGHT rules, each a bolded imperative plus one or two lines of
-why. Each traceable to an interview answer — especially "the last time
-AI-assisted work was difficult to parse" and its actionable fix. Take the
-shape from the prior; take the content from this user. Cover at least:
+why. Each traceable to an interview answer. Take the shape from the prior;
+take the content from this user. Cover at least:
   — what the first sentence must carry
   — what to cut that the agent would otherwise include
   — length and format, per artifact in play
@@ -83,43 +57,27 @@ shape from the prior; take the content from this user. Cover at least:
 
 {{ ... }}
 
-### When the reader hits something they don't know
+### When the text meets something the reader may not know
 
-{{ From the interview — answer / explanation / question. Pick ONE default
-and say what it looks like in practice:
-  — **Answer:** give it, one line, then offer depth. No scaffolding.
-  — **Explanation:** the shape of the answer, then the mechanism, then
-    details. Stop after the mechanism and check.
-  — **Question that gets them there:** ask what they expect before you
-    explain. Leave room. Answer if they say "just tell me". }}
+{{ From the gap-handling answer, adapted to the mode above. In an artifact
+the default governs how the TEXT handles an unknown, not how a conversation
+would:
+  — **Answer:** state it inline, one clause, and move on. No scaffolding.
+  — **Explanation:** the shape of the answer, then the mechanism; details
+    behind a link or an appendix, not in the flow.
+  — **Question that gets them there:** only meaningful in live exchange or
+    a teaching document — pose it, leave room, answer below the fold. Never
+    use it to withhold in an artifact the reader cannot reply to. }}
 
-{{ STUDENT-TYPE ONLY — include the block below when the READER is
-student-shaped: the prior is audience-student, or the gap-handling answer is
-"a question that gets me there" and it was asked about the reader. Full
-versions of these moves are in the generator's priors reference (Student
-section); inline what you use. Each bullet is tagged with the reader time
-budget it survives — copy only the bullets that pass, and delete the tags. }}
+### Teaching moves
 
-### Teaching moves {{ student-type }}
-
-- **Restate before explain.** [15+] Ask them to say where they are first.
-  Explain into the gap, not into the void.
-- **Drill the whys.** [15+] Problem, why it existed, the branches. Then
-  solution, why that one, its design decisions and edge cases. Then why it
-  matters.
-- **Do not end until verified.** [15+] At fifteen minutes, the short form:
-  name the one thing they should be able to do, check that, stop.
-- **Incremental mastery.** [1h+] Confirm the current step before the next. A
-  passed check moves something to "holds"; explaining it does not.
-- **Running checklist.** [1h+] A short visible ledger: holds / shaky /
-  deferred. Rewrite it, do not append.
-- **Quiz without revealing.** [1h+] Open-ended or multiple choice; vary
-  where the correct answer sits; do not give it until they have committed.
-
-**Five-minute version** [always — and at two minutes it is the whole
-section] (a different artifact, not a compressed one):
-1. What kind of thing this is. 2. The one mechanism that carries the rest.
-3. The thing people get wrong. 4. What we skipped and where to go next.
+{{ STUDENT-TYPE ONLY — include when the READER is student-shaped: the prior
+is audience-student, or the gap-handling answer is "a question that gets me
+there" and it was asked about the reader. Copy the moves from the
+generator's priors reference (Student section, "Pedagogy moves") that pass
+BOTH gates: the reader's time budget, and the mode above — the interactive
+moves need a live exchange; artifacts get the structural ones. Inline what
+you copy; delete the tags; delete this whole section for any other reader. }}
 
 ## Artifacts and local norms
 
@@ -141,10 +99,10 @@ link the collaboration's document if one exists }}
 ## Do / don't
 
 {{ ONE OR TWO worked pairs, drawn from the user's own examples — especially
-the "last time AI-assisted work was hard to parse" answer. Their vocabulary,
-their project nouns. Generalize the move; keep the example as illustration.
-Strip anything sensitive. This is the section the user is most likely to
-keep and the one that most changes behavior. }}
+the parsing-failure answer. Their vocabulary, their project nouns.
+Generalize the move; keep the example as illustration. Strip anything
+sensitive. This is the section the user is most likely to keep and the one
+that most changes behavior. }}
 
 **Don't:**
 
@@ -166,13 +124,3 @@ Generic entries ("be too verbose") add nothing. }}
 {{ What the interview could not settle, plus anything you guessed. Keep it —
 it is the agenda for the re-interview, and it is how the file stays honest
 about its own edges. }}
-```
-
----
-
-## Read it cold before you hand it over
-
-- Could someone without the interview follow every sentence the first time?
-- Is anything in here true of every audience, and therefore the body's job?
-- Do the user's project nouns appear? If it would fit any team, the
-  interview was not used.

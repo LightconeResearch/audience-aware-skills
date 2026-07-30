@@ -240,21 +240,33 @@ Write each audience file from
 prior, out of your **holistic understanding of the profile** — the user,
 their role, and who the reader is. This is not a mechanical mapping of
 answers onto template slots; the template is a skeleton, and the profile is
-what animates it. Universal content goes in the body, once; audience content
-in the audience file; nothing in both.
+what animates it. The templates are raw: everything in `{{ }}` is a slot,
+everything outside is constant and copies through verbatim. Universal
+content goes in the body, once; audience content in the audience file;
+nothing in both.
 
 Rules:
 
 - **Never write a line in the voice of a user answer unless the user said
   it.** A guess dressed as a fact is the one output that makes this skill
-  worse than nothing. Prior-derived content is legitimate **if labelled**:
-  mark such blocks `<!-- from prior: audience-X, not confirmed -->`, leave
-  unasked sections as `<!-- unasked: … -->`, and say so plainly in the
-  audience file's `## Confidence in this model` section. Delete that section
-  only when the model is first-hand and complete.
-- If the reader is student-shaped, apply the pedagogy moves and their time
-  gates from the Student section of `references/priors.md` — gated by the
-  **reader's** budget, not the interview's.
+  worse than nothing. Each slot has three honest states: filled from an
+  interview answer; filled from the prior and **marked** `<!-- from prior:
+  audience-X, not confirmed -->`; or replaced by a one-line
+  `<!-- unasked: … -->` comment so the re-interview picks it up. Under a
+  short budget most slots are the second and third kind — that is fine;
+  unmarked is what is not. Say so plainly in the audience file's
+  `## Confidence in this model` section.
+- **Every line is traceable to the user or to a named prior** — if you can
+  point at neither, cut it. Prefer the user's own words: they survive edits
+  that a paraphrase would not.
+- **Respect the mode.** Most external audiences are reached through one-shot
+  artifacts, not conversation — an artifact cannot ask the reader a question
+  and wait. The template's mode line records this; register rules and
+  teaching moves must fit it.
+- If the reader is student-shaped, copy the pedagogy moves from the Student
+  section of `references/priors.md` that pass **both gates**: the reader's
+  time budget (not the interview's) and the mode — interactive moves need a
+  live exchange, artifacts get the structural ones.
 - Anything a prior or `team-norms` contributes gets inlined — the generated
   files never point back at this repo.
 
