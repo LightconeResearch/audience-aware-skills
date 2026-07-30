@@ -1,0 +1,21 @@
+{
+  "name": "lightcone",
+  "interface": {
+    "displayName": "Lightcone Research"
+  },
+  "plugins": [
+    {
+      "name": "audience-aware-skills",
+      "description": "Interview a scientist about one audience and add a register for it to their personal communication skill, creating that skill when it does not exist yet.",
+      "source": {
+        "source": "url",
+        "url": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

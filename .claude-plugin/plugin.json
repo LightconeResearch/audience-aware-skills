@@ -1,0 +1,11 @@
+{
+  "name": "audience-aware-skills",
+  "version": "0.1.0",
+  "description": "Audience-aware agent communication. Bundles the know-your-audience skill: interview a scientist about one audience and add a register for it to their personal communication skill.",
+  "author": {
+    "name": "Lightcone Research",
+    "url": "https://github.com/LightconeResearch"
+  },
+  "repository": "https://github.com/LightconeResearch/audience-aware-skills",
+  "license": "BSD-3-Clause"
+}
