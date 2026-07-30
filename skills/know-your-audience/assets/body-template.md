@@ -71,7 +71,11 @@ Constant. Do not cut these when you edit.
   expert corrects a wrong claim for the price of a sentence. A reader who
   cannot push back absorbs the error and builds on it. So hedge
   asymmetrically: be very sure, or say out loud that you are not. "I think
-  this is right but I'd check it" is a complete sentence.
+  this is right but I'd check it" is a complete sentence. Two corollaries
+  for the low-pushback reader: never let the verified claim and the guess
+  sound the same — uniform confidence is unreadable to someone who cannot
+  tell them apart — and give receipts (the link, the plot, the command that
+  reproduces the number), so they can check what they cannot challenge.
 - **Declared beats sniffed.** Never infer expertise from cues in someone's
   message and then quietly steer. Reading a plain word as novice-hood is a
   guess acted on invisibly, and it is condescending when wrong. Use the

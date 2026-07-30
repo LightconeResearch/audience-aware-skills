@@ -142,6 +142,20 @@ review wasn't requested", "edit the PR body instead of commenting on every
 change" — and make skipping easy: this question matters, but the user should
 never have to draft their collaboration's AI policy on the spot.
 
+**B5 — will they push back?**
+
+> **Will this audience have the experience and confidence to push back on an
+> overconfident or incorrect statement, or will they tend to accept the text
+> as truth?**
+
+This sets more than a hedging dial. A high-pushback reader is part of the
+error-correction loop — thinking out loud is safe and useful. A low-pushback
+reader builds on whatever you write, so the text must carry its own
+error-correction machinery: confidence differentiated visibly (the verified
+claim and the guess must not sound the same), a smaller claim surface, and
+receipts — the link, the plot, the command that reproduces the number — so
+the reader can *check* what they cannot challenge from expertise.
+
 Under a fifteen-minute-plus budget, also ask the Track A questions in
 reader-facing form: what does this *reader* want at a gap; when did this
 *reader* find agent output hard to parse.
@@ -153,9 +167,6 @@ Skipped freely under a tight budget:
 - **What should they be able to do afterward?** The point of the
   communication, in the user's words: "decide whether to fund it",
   "reproduce it next month", "not be lost in the group meeting".
-- **Will they push back?** Is this reader someone who can question a
-  confident statement critically — and has the expertise to do so — or will
-  they take it as truth and carry it forward? Sets the uncertainty rule.
 - **One norm an outsider would get wrong**, and one thing that has annoyed
   people here.
 - **Real examples.** One thing written for this audience that landed, one
@@ -163,7 +174,8 @@ Skipped freely under a tight budget:
 
 **The time answer binds the interview:**
 
-- **Two minutes** — the track questions only (A: A1, skip A2; B: B1 and B2).
+- **Two minutes** — the core track questions only (A: A1, skip A2; B: B1 and
+  B2, skip B3–B5).
 - **Fifteen** — the full track, plus the follow-ups that earn their place.
 - **An hour or more** — everything, and walk the draft line by line.
 
