@@ -6,7 +6,7 @@ human who will read what the agent writes — a student, a peer, an advisor, the
 person who asked for the work. Each reader deserves a different register.
 
 The product is [`skills/know-your-audience/`](skills/know-your-audience/SKILL.md).
-It interviews you about one real audience. It then writes that audience into
+It interviews you about one real audience (yourself or others). It then writes that audience into
 your **single personal communication skill**: universal preferences once in
 the body, one editable reference file per audience. The agent is always the
 author — the skill governs how it writes to you and to the people it writes
