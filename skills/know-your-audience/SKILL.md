@@ -1,6 +1,6 @@
 ---
 name: know-your-audience
-description: Interview a scientist about one audience and add a register for it to their personal communication skill — creating that skill if it does not exist yet. Use whenever someone is defining a new audience, joining a new collaboration, taking on a new role, or says "create a communication skill for X", "define how the agent writes for the DESI working group", "add my advisor as an audience", "set up a reader profile for my student", "define my audience", "set up how you talk to me". Also use to re-interview and update an audience already on file.
+description: Interview a scientist about one audience and add a register for it to their personal communication skill — creating that skill if it does not exist yet. Use whenever someone is defining a new audience, joining a new collaboration, taking on a new role, or says "create a communication skill for X", "define how the agent writes for Y working group", "add my advisor as an audience", "set up a reader profile for my student", "define my audience", "set up how you talk to me". Also use to re-interview and update an audience already on file.
 ---
 
 # Audience definition
@@ -69,8 +69,8 @@ you heard. Stop early when you have enough.
 **Q1 — who will the agent be writing to. Ask it first.**
 
 > **Is this about how the agent communicates with you — the register you
-> want in your own chat — or about the agent writing to someone else on
-> your behalf?**
+> want in your own chat — or about the agent writing for a general defined
+> audience on your behalf?** 
 
 **Q2 — time budget. Ask it alone, before the rest.** It sizes the interview
 itself.
@@ -101,14 +101,17 @@ incident, **except at two minutes, where you skip it entirely**):
 > **Tell me about the last time AI-assisted work was difficult to parse. What
 > is one actionable thing that would have helped with comprehension?**
 
+If the interviewee isn't time constrained, also ask questions from Track B where 
+the audience is the interviewee. Use judgement to guide the conversation. In both
+tracks, you don't **have** to ask every question.
+
 ### Track B — the agent writes to someone else
 
 The user is describing a reader who is not them. Their answers about the
 audience are a model, not ground truth: the audience file states whose model
 it is and marks the guesses. When a slot needs the reader's own answer (how
 long they give one artifact, what *they* find hard to parse) and the user
-cannot supply it, leave it unknown and say so — and suggest the cheap fix of
-sending the questions to the actual reader.
+cannot supply it, leave it unknown and say so.
 
 **B1 — the audience** (this picks the prior; "something else" is the most
 useful answer):
@@ -274,9 +277,7 @@ Craft rules: the skill's description routes every audience, so keep each
 clause concrete — the collaboration, the surfaces, the phrases the user
 types (lean slightly pushy; agents undertrigger). Body short, audience files
 under ~120 lines — each is read in full when it fires. Imperative voice.
-Explain why instead of stacking MUSTs. Do not overfit to one anecdote —
-generalize the move, keep the example as illustration. Reread it cold and
-cut.
+Explain why instead of stacking MUSTs. Do not overfit to one anecdote. 
 
 ## 6. Hand over
 
@@ -293,31 +294,16 @@ Then stop. Do not walk them through the file — they will read it. Never ask
 the user to write a section themselves; if a slot is empty, ask one more
 question or cut it.
 
-## Re-interviewing
-
-An audience file goes stale because the user's model of the team improves.
-When updating: read the existing file first, ask what changed and what
-turned out wrong, re-ask for real examples (they turn over fastest), and **edit in
-place rather than regenerating** — the user's own edits survive. Update the
-index row and description clause if the register changed. Do not badger:
-never offer to re-interview more than once a day, and only when something
-suggests the model has moved.
 
 ## Failure modes
 
 - **Interrogation.** Twelve questions to a person who said two minutes.
-- **Generic output.** If it would fit any team, you did not use the
-  interview. Their project nouns should appear in it.
+- **Generic output.** It may fit any number of teams, but specificity 
+  should be used when appropriate. A team's project nouns can appear.
 - **Guessing to fill the template.** Empty is honest; invented is not.
 - **Ignoring the prior.** Ten unrelated registers instead of ten
   specializations.
-- **Duplicating the universal.** A sign-off or a constant block repeated
-  into an audience file will drift from the body's copy. One place per
-  fact.
-- **Modelling the user instead of the reader.** Sharpest form: mapping the
-  user's own role and generating an advisor register for people they
-  advise.
-- **Importing the interview budget into the reader model.** Their two spare
+- **Importing the time budget into the reader model.** Their two spare
   minutes are not their working group's reading habit.
 - **Handing back an essay.** They asked for a file, not a lecture about it.
 - **Slop.** No "Great question!", no "comprehensive framework", no bullets
