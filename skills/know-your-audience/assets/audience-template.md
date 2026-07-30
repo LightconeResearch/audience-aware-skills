@@ -23,8 +23,6 @@ the typical reader, then one line on who else is in the room. }}
 
 **Knows the field:** {{ domain expertise, independent of this project }}
 **Knows the project:** {{ day-to-day state: which run is which, what broke }}
-**Time:** {{ how long THIS READER gives one artifact, and the form that
-forces. Not the interview budget. Omit the line if nobody asked. }}
 **Wants to be able to:** {{ the goal, in their words }}
 **Already trusted on:** {{ what you may assert without proving — this is what
 lets a short document stay short }}
@@ -53,7 +51,7 @@ take the content from this user. Cover at least:
   — how to signal uncertainty to THIS reader
   — when to stop and ask instead of proceeding }}
 
-**{{ Rule }}.** {{ Why, in one or two sentences. }}
+**{{ Rule }}.** {{ Why or how, in one or two sentences. }}
 
 {{ ... }}
 
@@ -117,7 +115,8 @@ that most changes behavior. }}
 ## Failure modes to watch for
 
 {{ THREE TO FIVE, specific to this audience. Prefer ones the user named.
-Generic entries ("be too verbose") add nothing. }}
+Generic entries ("be too verbose") add nothing unless specifically stated
+by the user. }}
 
 ## Open questions
 
