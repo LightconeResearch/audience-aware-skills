@@ -46,8 +46,8 @@ afterward. Write it as a claim the user can correct in one edit, not as
 hedged prose. For a plural audience — a working group, a channel — describe
 the typical reader, then one line on who else is in the room. }}
 
-**Knowledge entering:** {{ domain expertise, independent of this project }}
-**Context held:** {{ day-to-day project state: which run is which, what broke }}
+**Knows the field:** {{ domain expertise, independent of this project }}
+**Knows the project:** {{ day-to-day state: which run is which, what broke }}
 **Time:** {{ how long THIS READER gives one artifact, and the form that
 forces. Not the interview budget. Omit the line if nobody asked. }}
 **Wants to be able to:** {{ the goal, in their words }}
@@ -74,6 +74,8 @@ shape from the prior; take the content from this user. Cover at least:
   — what the first sentence must carry
   — what to cut that the agent would otherwise include
   — length and format, per artifact in play
+  — how much justification each claim needs: receipts and plots, or a
+    skimmable summary
   — how to signal uncertainty to THIS reader
   — when to stop and ask instead of proceeding }}
 
@@ -130,6 +132,8 @@ the length, and the one thing that goes wrong there. }}
 **Cadence:** {{ when to post; when silence is the right output }}
 **Length ceiling:** {{ concrete: one screen, three paragraphs, ten slides }}
 **Tagging and approval:** {{ who may be tagged; what needs a human first }}
+**AI disclosure:** {{ this audience's norms on AI usage and its disclosure;
+link the collaboration's document if one exists }}
 **Register:** {{ formal or casual; prose, bullets, tables; emoji or not }}
 **Local rule an outsider would get wrong:** {{ the one that bites newcomers }}
 **What has annoyed people here before:** {{ the specific past friction }}

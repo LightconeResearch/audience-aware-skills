@@ -46,8 +46,8 @@ describes five priors — `audience-student`, `audience-collaborator`,
 `audience-advisor`, `audience-prompter`, and `team-norms` (etiquette for
 shared surfaces, not a reader) — each in full: reader model, register,
 failure modes, and (for the student) pedagogy moves with time gates. It also
-gives the two axes (knowledge entering vs. context held) used to place a
-"something else" answer.
+gives the two axes — what a reader knows about the field vs. what they know
+about the project's day-to-day — used to place a "something else" answer.
 
 Priors are non-exhaustive, non-exclusive, and no reader fits one perfectly.
 They inform the interview: they tell you what to listen for and which
@@ -62,32 +62,15 @@ specific to this audience.
 
 ## 2. Interview
 
+Two questions always come first, then the track splits on the first answer.
+Ask in small batches — two or three per turn, not a form. Reflect back what
+you heard. Stop early when you have enough.
+
 **Q1 — who will the agent be writing to. Ask it first.**
 
 > **Is this about how the agent communicates with you — the register you
 > want in your own chat — or about the agent writing to someone else on
 > your behalf?**
-
-- **The user themselves.** First-hand and reliable; use their words. This
-  register applies to *every message the agent sends them*, so its natural
-  home is the global `CLAUDE.md` / `AGENTS.md` rather than a file that must
-  trigger (offer both in step 4). If what they want is to *learn* — not
-  just be talked to well — combine the interview with
-  [`references/learning-prompt.md`](references/learning-prompt.md), the
-  strongest known student-register prompt; its moves are time-gated.
-- **Someone else.** The interview is second-hand: the verbatim questions ask
-  about the *user*, but the file is about the *reader*. Ask the
-  reader-facing versions too — what the reader is to the user, how long the
-  reader gives one artifact, what the *reader* finds hard to parse. The
-  user's own answers size the interview; they do not fill the reader model.
-  If a reader-facing answer is unavailable, leave that slot unknown and say
-  so. The audience file states whose model it is and marks the guesses;
-  suggest the cheap fix of sending the standard questions to the actual
-  reader.
-
-Then four standard questions, Q2–Q5. Ask them verbatim; do not paraphrase
-them into your own voice. Ask in small batches — two or three per turn, not
-a form. Reflect back what you heard. Stop early when you have enough.
 
 **Q2 — time budget. Ask it alone, before the rest.** It sizes the interview
 itself.
@@ -95,46 +78,94 @@ itself.
 > **How long do you have right now? Two minutes / fifteen / an hour / as long
 > as it takes**
 
-**Q3 — role** ("something else" is the most useful answer):
+### Track A — the reader is the user
 
-> **Which role applies to you the most as part of this research team?
-> 1. Advisor 2. Peer 3. Student 4. Something else -- please provide**
+First-hand and reliable; use their words. This register applies to *every
+message the agent sends them*, so its natural home is the global `CLAUDE.md`
+/ `AGENTS.md` rather than a file that must trigger (offer both in step 4).
+If what they want is to *learn* — not just be talked to well — combine the
+interview with
+[`references/learning-prompt.md`](references/learning-prompt.md), the
+strongest known student-register prompt; its moves are time-gated.
 
-**Q4 — gap handling** (the teaching-vs-briefing dial; sharper than the role
-label):
+Two questions, verbatim — do not paraphrase them into your own voice:
+
+**A1 — gap handling** (the teaching-vs-briefing dial):
 
 > **When you hit something you don't know, do you want the answer, an
 > explanation of the topic, or a question that gets you there?**
 
-**Q5 — parsing failure** (the richest question — push for a specific
+**A2 — parsing failure** (the richest question — push for a specific
 incident, **except at two minutes, where you skip it entirely**):
 
 > **Tell me about the last time AI-assisted work was difficult to parse. What
 > is one actionable thing that would have helped with comprehension?**
 
-Alongside Q3, take one line of context: which collaboration, which surfaces
-(PRs, issues, Slack, reports, talks).
+### Track B — the agent writes to someone else
 
-Optional follow-ups, skipped freely under a tight budget:
+The user is describing a reader who is not them. Their answers about the
+audience are a model, not ground truth: the audience file states whose model
+it is and marks the guesses. When a slot needs the reader's own answer (how
+long they give one artifact, what *they* find hard to parse) and the user
+cannot supply it, leave it unknown and say so — and suggest the cheap fix of
+sending the questions to the actual reader.
 
-- **Q6 — knowledge entering, and context held.** Two separate axes; collapsing
-  them is the most common modelling error.
-- **Q7 — what should they be able to do afterward?** Roles are defined by
-  goals, not knowledge.
-- **Q8 — cost of being wrong.** Can this reader push back in a sentence, or do
-  they absorb the error and build on it? Sets the uncertainty rule.
-- **Q9 — artifacts and local norms.** Two or three surfaces that actually
-  occur; only what differs from the universal preferences already on file.
-- **Q10 — one norm an outsider would get wrong**, and one thing that has
-  annoyed people here.
-- **Q11 — real examples.** One thing that landed, one that did not. Two real
-  samples beat twenty adjectives.
+**B1 — the audience** (this picks the prior; "something else" is the most
+useful answer):
+
+> **What audience are we writing for here — an advisor, a peer, a student,
+> or something else?**
+
+Alongside it, one line of context: which collaboration, which surfaces (PRs,
+issues, Slack, reports, talks).
+
+**B2 — shared context and assumed knowledge:**
+
+> **What is the technical or scientific context, and what can you assume
+> this audience already knows about it?**
+
+Invite the split between field and project — "my DESI peers know BAO cold,
+but not the details of my mocks" is exactly the shape you want.
+
+**B3 — thoroughness:**
+
+> **Does this audience want every statement justified — numbers, plots,
+> receipts — or a high-level summary they can skim?**
+
+**B4 — AI norms:**
+
+> **Does this audience have norms about AI usage or its disclosure?**
+
+A link to an existing collaboration document is the ideal answer. Offer
+examples of the kind of thing that counts — "don't review PRs where your
+review wasn't requested", "edit the PR body instead of commenting on every
+change" — and make skipping easy: this question matters, but the user should
+never have to draft their collaboration's AI policy on the spot.
+
+Under a fifteen-minute-plus budget, also ask the Track A questions in
+reader-facing form: what does this *reader* want at a gap; when did this
+*reader* find agent output hard to parse.
+
+### Optional follow-ups, either track
+
+Skipped freely under a tight budget:
+
+- **What should they be able to do afterward?** The point of the
+  communication, in the user's words: "decide whether to fund it",
+  "reproduce it next month", "not be lost in the group meeting".
+- **Will they push back?** Is this reader someone who can question a
+  confident statement critically — and has the expertise to do so — or will
+  they take it as truth and carry it forward? Sets the uncertainty rule.
+- **One norm an outsider would get wrong**, and one thing that has annoyed
+  people here.
+- **Real examples.** One thing written for this audience that landed, one
+  that did not. Two real samples beat twenty adjectives.
 
 **The time answer binds the interview:**
 
-- **Two minutes** — Q3 and Q4 only, with the one-line context. Skip Q5.
-- **Fifteen** — add Q5 and Q6–Q9.
-- **An hour or more** — add Q10 and Q11, and walk the draft line by line.
+- **Two minutes** — the track questions only (A: A1, skip A2; B: B1 and B2).
+- **Fifteen** — the full track, plus the follow-ups that earn their place.
+- **An hour or more** — everything, and walk the draft line by line.
 
 Say which mode you are in: a short interview makes a thinner file, and the
 user should know that is what they are buying.
@@ -145,11 +176,12 @@ Pause before writing anything. Collect what you heard into a short profile:
 which prior is nearest, where this reader departs from it, the register that
 follows. Mapping notes:
 
-- Q3 asks what the **user** is; priors are named for what the **reader** is.
-  When the reader is the user, map straight through. When the reader is
-  someone else, ask what that audience is *to the user* and map that — for a
-  WG lead's working group, the reader lands on student or collaborator,
-  never advisor.
+- **B1 names the reader, and the reader picks the prior**: advisor →
+  `audience-advisor`, peer → `audience-collaborator`, student →
+  `audience-student`. "Something else" gets placed via the two axes in
+  `references/priors.md`. Sanity-check the direction: the prior describes
+  the *reader's* position relative to the user — a WG lead's working group
+  lands on student or collaborator, never advisor.
 - **Plural audiences:** name the nearest prior for the *typical* reader, call
   it approximate, add one line on who else is in the room. Do not stack
   priors.
@@ -243,7 +275,7 @@ question or cut it.
 
 An audience file goes stale because the user's model of the team improves.
 When updating: read the existing file first, ask what changed and what
-turned out wrong, re-ask Q11 (examples turn over fastest), and **edit in
+turned out wrong, re-ask for real examples (they turn over fastest), and **edit in
 place rather than regenerating** — the user's own edits survive. Update the
 index row and description clause if the register changed. Do not badger:
 never offer to re-interview more than once a day, and only when something
