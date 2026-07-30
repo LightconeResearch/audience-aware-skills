@@ -10,7 +10,7 @@
     {
       "name": "audience-aware-skills",
       "source": "./",
-      "description": "audience-definition: interview a scientist about one audience and add a register for it to their personal communication skill — creating that skill if it does not exist yet."
+      "description": "know-your-audience: interview a scientist about one audience and add a register for it to their personal communication skill — creating that skill if it does not exist yet."
     }
   ]
 }

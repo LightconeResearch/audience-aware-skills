@@ -19,16 +19,16 @@ Open a PR. If you are not sure it is right, open it as a draft and say so.
 
 ## Adding a new role
 
-This describes evolving the priors that `audience-definition` generates from —
+This describes evolving the priors that `know-your-audience` generates from —
 `archive/skills/`. Most new audiences don't need a new role; they need an
-interview with `audience-definition`. Add a role only when it earns a distinct
+interview with `know-your-audience`. Add a role only when it earns a distinct
 place on both axes below, not per-team or per-person.
 
 1. **Justify the role on two axes, not one.** Knowledge entering (domain
    expertise) and context held (day-to-day project state) are separate. A new
    role needs a distinct position on both, plus a distinct answer to what they
    are reading *for*. See
-   [`skills/audience-definition/references/priors.md`](skills/audience-definition/references/priors.md).
+   [`skills/know-your-audience/references/priors.md`](skills/know-your-audience/references/priors.md).
    Round 2 example: "collaborator" earned its place once we saw the delta from
    the author is trench time, not knowledge. "Funder" might earn one: knows less
    about the method, reads for whether to keep paying.
@@ -50,7 +50,7 @@ place on both axes below, not per-team or per-person.
 
 4. **Add per-role rubric rows to `evals/README.md`.**
 
-5. **Add the role to the table in `skills/audience-definition/SKILL.md`'s
+5. **Add the role to the table in `skills/know-your-audience/SKILL.md`'s
    priors list**, and to the two-axes table in `README.md` if it changes that
    framing.
 

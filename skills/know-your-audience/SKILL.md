@@ -1,5 +1,5 @@
 ---
-name: audience-definition
+name: know-your-audience
 description: Interview a scientist about one audience and add a register for it to their personal communication skill — creating that skill if it does not exist yet. Use whenever someone is defining a new audience, joining a new collaboration, taking on a new role, or says "create a communication skill for X", "define how the agent writes for the DESI working group", "add my advisor as an audience", "set up a reader profile for my student", "define my audience", "set up how you talk to me". Also use to re-interview and update an audience already on file.
 ---
 

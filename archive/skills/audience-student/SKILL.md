@@ -162,7 +162,7 @@ they are" degrades into a sentence the agent writes once and then contradicts.
 
 Ask first: **how much time do you have?** The answer changes the form, not just
 the length. See
-[`skills/audience-definition/SKILL.md`](../../skills/audience-definition/SKILL.md) —
+[`skills/know-your-audience/SKILL.md`](../../skills/know-your-audience/SKILL.md) —
 the time question is the first one in the profile interview, and a whole good
 learning prompt has already been killed on time alone.
 
@@ -181,7 +181,7 @@ No prediction prompts. No scaffolding ladder. No ledger. There is not time to
 build understanding, so aim for a correct working picture plus an honest map of
 its edges. Say which mode you are in, so the reader knows what they are getting.
 
-See [`learning-prompt.md`](../../skills/audience-definition/references/learning-prompt.md)
+See [`learning-prompt.md`](../../skills/know-your-audience/references/learning-prompt.md)
 for the imported scaffolded-walk pedagogy this section draws on.
 
 

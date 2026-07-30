@@ -5,7 +5,7 @@ long. That register is wrong for almost every reader. The **reader** is the
 human who will read what the agent writes — a student, a peer, an advisor, the
 person who asked for the work. Each reader deserves a different register.
 
-The product is [`skills/audience-definition/`](skills/audience-definition/SKILL.md).
+The product is [`skills/know-your-audience/`](skills/know-your-audience/SKILL.md).
 It interviews you about one real audience. It then writes that audience into
 your **single personal communication skill**: universal preferences once in
 the body, one editable reference file per audience. The agent is always the
@@ -32,19 +32,19 @@ Everything here is a draft. Tear it apart.
 provides — clone it and work from inside it, or copy the skill globally:
 
 ```
-cp -r skills/audience-definition ~/.agents/skills/
+cp -r skills/know-your-audience ~/.agents/skills/
 ```
 
 **Manual** (any agent that reads `~/.claude/skills/`):
 
 ```
-cp -r skills/audience-definition ~/.claude/skills/
+cp -r skills/know-your-audience ~/.claude/skills/
 ```
 
 ## Layout
 
 ```
-skills/audience-definition/   The product: interview → generated audience skill.
+skills/know-your-audience/   The product: interview → generated audience skill.
 evals/                        With/without-skill comparison protocol and tasks.
 archive/skills/               v0 per-role skills — the priors' provenance.
 CONTRIBUTING.md               How to tune a skill, evolve a prior, run an eval.

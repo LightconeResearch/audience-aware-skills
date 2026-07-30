@@ -34,18 +34,18 @@ description: How {{ user }}'s agent communicates with humans — universal
   update, an explanation. Audiences on file: {{ one clause per audience,
   naming the collaboration, the surfaces, and the phrases the user types —
   "the DESI lensing WG (PRs, Slack)", "updates to my advisor". Maintained by
-  audience-definition: append a clause when adding an audience. }}
+  know-your-audience: append a clause when adding an audience. }}
 ---
 
 # Communication — {{ user }}
 
-**Generated {{ date }} by `audience-definition`. Edit freely — this is
+**Generated {{ date }} by `know-your-audience`. Edit freely — this is
 yours.**
 
 You are always the author. Before writing anything a human will read:
 identify the audience, find it in the index below, and read its reference
 file in full. If no audience fits, say so — offer to run
-`audience-definition` rather than writing for a guessed reader.
+`know-your-audience` rather than writing for a guessed reader.
 
 ## Universal preferences
 
@@ -61,7 +61,7 @@ said — this section starts small and grows across interviews. }}
 |---|---|---|
 | {{ name }} | `references/{{ slug }}.md` | {{ one line }} |
 
-{{ One row per audience. audience-definition maintains this table. }}
+{{ One row per audience. know-your-audience maintains this table. }}
 
 ## Regardless of audience
 
